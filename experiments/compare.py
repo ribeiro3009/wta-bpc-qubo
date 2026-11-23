@@ -12,7 +12,9 @@ Writes experiments/results/calls.csv and runs.csv and prints two summary tables.
 Run:  .venv/bin/python experiments/compare.py
 """
 import csv
+import hashlib
 import math
+import sys
 import time
 from pathlib import Path
 
@@ -37,7 +39,7 @@ SOLVERS = {
     "annealing": ("annealing", {"num_reads": 10, "num_sweeps": 500, "seed": 0}),
     "annealing_cheap": ("annealing", {"num_reads": 3, "num_sweeps": 100, "seed": 0}),
     "qaoa_x": ("qaoa", {"reps": 2, "maxiter": 200, "shots": 1000, "seed": 0}),
-    "qaoa_xy": ("qaoa_xy", {"reps": 2, "maxiter": 200, "shots": 1000, "seed": 0}),
+    "qaoa_xy": ("qaoa_xy", {"reps": 2, "maxiter": 2000, "tol": 1e-8, "shots": 1000, "seed": 0}),
 }
 QAOA_SOLVERS = ["qaoa_x", "qaoa_xy"]
 
@@ -74,6 +76,22 @@ def exact_probabilities(name, info, Q, const, index, weapons, targets, best):
             "p_optimal_uniform": optimal.mean(), "p_feasible_uniform": feasible.mean()}
 
 
+def residual_key(candidates, weapons, targets):
+    """Short fingerprint of a residual problem: the same residual met at several nodes of the
+    tree gets the same key, so results can also be counted once per distinct problem."""
+    columns = sorted((int(j), tuple(sorted(int(i) for i in t))) for j, t in candidates)
+    text = repr((columns, sorted(int(i) for i in weapons), sorted(int(j) for j in targets)))
+    return hashlib.sha1(text.encode()).hexdigest()[:12]
+
+
+def distinct(calls):
+    """One call per distinct (instance, residual problem): the first one met."""
+    first = {}
+    for c in calls:
+        first.setdefault((c["instance"], c["residual"]), c)
+    return list(first.values())
+
+
 def recording_solver(name, calls):
     """A residual_solver for solve_wta that runs solver `name` and appends one record per call."""
     solver, options = SOLVERS[name]
@@ -84,6 +102,7 @@ def recording_solver(name, calls):
         K = len(candidates)
         Q, const, index = build_qubo(candidates, pool, weapons, targets)
         record = {
+            "residual": residual_key(candidates, weapons, targets),
             "variables": K,
             "couplings": int(np.count_nonzero(np.triu(Q, 1))),
             # vectors with one column per free target: the space the XY mixer explores
@@ -115,8 +134,10 @@ def recording_solver(name, calls):
     return residual_solver
 
 
-def run():
-    RESULTS.mkdir(exist_ok=True)
+def run(results=RESULTS):
+    """Run every solver on every instance; write calls.csv and runs.csv to `results`."""
+    results = Path(results)
+    results.mkdir(parents=True, exist_ok=True)
     call_rows, run_rows = [], []
     for n, m, density in FAMILIES:
         family = f"{n}x{m} d={density}"
@@ -134,7 +155,7 @@ def run():
 
     for filename, rows in [("calls.csv", call_rows), ("runs.csv", run_rows)]:
         fields = list(dict.fromkeys(key for row in rows for key in row))     # union of all keys
-        with open(RESULTS / filename, "w", newline="") as f:
+        with open(results / filename, "w", newline="") as f:
             writer = csv.DictWriter(f, fieldnames=fields)
             writer.writeheader()
             writer.writerows(rows)
@@ -172,16 +193,19 @@ def summarize(call_rows, run_rows):
             ran = [c for c in calls if c["status"] != "skipped"]
             answered = [c for c in ran if c["cost"] is not None]
             small = [c for c in calls if c["variables"] <= SMALL]
+            ran_distinct = distinct(ran)          # each residual problem counted once per instance
             sizes = sorted(c["variables"] for c in calls)
             main.append({
                 "family": family,
                 "solver": name,
                 "calls": len(calls),
+                "distinct": len(distinct(calls)),
                 "K med": sizes[len(sizes) // 2],
                 "K max": sizes[-1],
                 "skipped": len(calls) - len(ran),
                 "infeasible": len(ran) - len(answered),
                 "optimal": fraction(sum(c["optimal"] for c in ran), len(ran)),
+                "optimal distinct": fraction(sum(c["optimal"] for c in ran_distinct), len(ran_distinct)),
                 f"optimal K<={SMALL}": fraction(sum(c["optimal"] for c in small), len(small)),
                 "mean gap": mean([c["cost"] - c["optimal_cost"] for c in answered]),
                 "ms/call": mean([1000 * c["seconds"] for c in ran], 1),
@@ -192,11 +216,22 @@ def summarize(call_rows, run_rows):
             })
             if name in QAOA_SOLVERS:
                 small_ran = [c for c in ran if c["variables"] <= SMALL]
+                shots = SOLVERS[name][1]["shots"]
+
+                def expected(calls):
+                    """Expected number of calls whose `shots` measurements contain an optimum:
+                    sum of 1 - (1 - P(opt))^shots. Unlike the observed count, it does not depend
+                    on the random draws, so it is stable across machines."""
+                    return round(sum(1 - (1 - c["p_optimal"]) ** shots for c in calls), 1)
+
                 probabilities.append({
                     "family": family,
                     "solver": name,
                     "calls run": len(ran),
+                    "expected optimal": f"{expected(ran)}/{len(ran)}",
+                    "expected optimal distinct": f"{expected(ran_distinct)}/{len(ran_distinct)}",
                     "P(opt)": mean([c["p_optimal"] for c in ran], 4),
+                    "P(opt) distinct": mean([c["p_optimal"] for c in ran_distinct], 4),
                     "P(opt) uniform": mean([c["p_optimal_uniform"] for c in ran], 4),
                     "P(feas)": mean([c["p_feasible"] for c in ran]),
                     "P(feas) uniform": mean([c["p_feasible_uniform"] for c in ran]),
@@ -205,7 +240,9 @@ def summarize(call_rows, run_rows):
 
     print()
     print_table(main)
-    print("\ncalls: step-2.5 calls with a non-empty residual; K: QUBO variables; skipped: solver not run "
+    print("\ncalls: step-2.5 calls with a non-empty residual; distinct: different residual problems "
+          "(the same residual can be met at several nodes); optimal distinct: the same success count "
+          "with each distinct problem counted once; K: QUBO variables; skipped: solver not run "
           f"(no_heuristic: always; qaoa_x: K > {QAOA_X_MAX_QUBITS}; qaoa_xy: more than "
           f"{qaoa_xy.MAX_STATES} one-hot states); infeasible: answer broke a rule (None returned); "
           "optimal: answer as good as the exact residual optimum; mean gap: extra cost vs that optimum; "
@@ -213,9 +250,11 @@ def summarize(call_rows, run_rows):
     print()
     print_table(probabilities)
     print("\nP(opt), P(feas): exact probabilities of measuring an optimal / feasible vector after QAOA, "
-          "mean over the calls run; uniform: the same for a uniform random vector (over 2^K vectors "
-          "for qaoa_x, over the one-hot vectors for qaoa_xy)")
+          "mean over the calls run (distinct: over the distinct residual problems); expected optimal: "
+          "sum of 1 - (1 - P(opt))^shots, the success count expected from the shots (it does not "
+          "depend on the random draws, unlike the 'optimal' column above); uniform: the same "
+          "for a uniform random vector (over 2^K vectors for qaoa_x, over the one-hot vectors for qaoa_xy)")
 
 
 if __name__ == "__main__":
-    run()
+    run(sys.argv[1] if len(sys.argv) > 1 else RESULTS)        # optional output folder

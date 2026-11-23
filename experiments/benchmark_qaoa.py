@@ -9,6 +9,7 @@ Writes experiments/results/benchmark_qaoa.csv and prints a summary.
 Run:  .venv/bin/python experiments/benchmark_qaoa.py
 """
 import csv
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -69,12 +70,13 @@ def measure(problem):
     return rows
 
 
-def main():
-    RESULTS.mkdir(exist_ok=True)
+def main(results=RESULTS):
+    results = Path(results)
+    results.mkdir(parents=True, exist_ok=True)
     problems = [p for path in sorted(BENCHMARK.glob("*.json")) for p in benchmark.load(path)]
     print(f"{len(problems)} benchmark problems")
     rows = [row for problem in problems for row in measure(problem)]
-    with open(RESULTS / "benchmark_qaoa.csv", "w", newline="") as f:
+    with open(results / "benchmark_qaoa.csv", "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=list(rows[0]))
         writer.writeheader()
         writer.writerows(rows)
@@ -88,6 +90,8 @@ def main():
             summary.append({
                 "mixer": mixer, "p": depth, "problems": len(group),
                 "P(opt)": round(np.mean([r["p_optimal"] for r in group]), 4),
+                # problems whose 1000 measurements are expected to contain an optimum
+                "expected optimal": f"{sum(1 - (1 - r['p_optimal']) ** 1000 for r in group):.1f}/{len(group)}",
                 "P(opt) uniform": round(np.mean([r["p_optimal_uniform"] for r in group]), 4),
                 "gain med": round(np.median([r["p_optimal"] / r["p_optimal_uniform"] for r in group]), 1),
                 "P(feas)": round(np.mean([r["p_feasible"] for r in group]), 3),
@@ -98,9 +102,11 @@ def main():
             })
     print_table(summary)
     print("\nP(opt), P(feas): exact probabilities after QAOA (mean over problems); gain med: median of "
-          "P(opt) / P(opt) uniform; ratio: mean cost of the feasible outcomes / optimum (1 = always "
+          "P(opt) / P(opt) uniform; expected optimal: sum of 1 - (1 - P(opt))^1000, the number of "
+          "problems whose 1000 measurements are expected to contain an optimum; "
+          "ratio: mean cost of the feasible outcomes / optimum (1 = always "
           f"optimal); K<={X_MAX_QUBITS}: only the problems where the X mixer also runs")
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1] if len(sys.argv) > 1 else RESULTS)        # optional output folder
