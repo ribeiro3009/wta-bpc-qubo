@@ -44,7 +44,7 @@ uv pip install --python .venv/bin/python -e ".[dev]"
 ## Run
 
 ```bash
-.venv/bin/python bpc.py      # solves a random 20 x 20 instance
+.venv/bin/python -m wta_bpc.bpc   # solves a random 20 x 20 instance
 .venv/bin/python -m pytest   # runs the tests
 ```
 
