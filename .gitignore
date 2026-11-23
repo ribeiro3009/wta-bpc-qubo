@@ -1,0 +1,19 @@
+# Virtual environment (recreate with: uv venv --python 3.13 .venv)
+.venv/
+
+# Python caches and build artifacts
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+
+# Test cache
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# Personal files, kept out of the public repo
+CLAUDE.md
+Notes_etude_LP_WTA.pdf

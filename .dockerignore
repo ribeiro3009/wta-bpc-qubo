@@ -1,0 +1,8 @@
+.venv/
+.git/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+CLAUDE.md
+Notes_etude_LP_WTA.pdf
