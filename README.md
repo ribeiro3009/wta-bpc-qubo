@@ -38,8 +38,13 @@ Requires [uv](https://docs.astral.sh/uv/).
 
 ```bash
 uv venv --python 3.13 .venv
-uv pip install --python .venv/bin/python -e ".[dev]"
+uv pip install --python .venv/bin/python -e ".[dev,quantum]"
 ```
+
+The `quantum` extra installs Qiskit. Two experiments need it: `compare.py` runs the X-mixer
+QAOA (`qaoa` solver) and `benchmark_qaoa.py` imports it. The branch-and-price, the classical
+solvers and the XY-mixer QAOA (`qaoa_xy`, numpy only) work without it. To skip Qiskit, install
+`-e ".[dev]"`: the Qiskit tests are then skipped, and the two scripts above will fail.
 
 ## Run
 
@@ -52,7 +57,14 @@ uv pip install --python .venv/bin/python -e ".[dev]"
 .venv/bin/python experiments/find_hard_families.py   # tree size with / without step 2.5 (~20 s)
 ```
 
-### QUBO solvers for step 2.5
+With Docker (installs the `quantum` extra too and runs the tests):
+
+```bash
+docker build -t wta-bpc .
+docker run --rm wta-bpc
+```
+
+## QUBO solvers for step 2.5
 
 | name | method |
 |---|---|
@@ -62,25 +74,18 @@ uv pip install --python .venv/bin/python -e ".[dev]"
 | `qaoa_xy` | QAOA with an XY mixer per target, simulated in the one-column-per-target subspace (numpy). On hardware it still needs K qubits. |
 | `random`, `random_onehot` | baselines: best of `shots` uniform random vectors (over all vectors / one column per target) |
 
-### Benchmark
+## Benchmark
 
 `experiments/benchmark/` holds the residual problems of step 2.5 met by the branch-and-price on
 sparse instances with a fractional root LP (candidate columns, costs, free weapons and targets,
 exact optimum). Load them with `wta_bpc.benchmark.load` and `problem_from_dict`.
-
-QAOA needs the optional extra: `uv pip install --python .venv/bin/python -e ".[dev,quantum]"`.
-
-With Docker:
-
-```bash
-docker build -t wta-bpc .
-docker run --rm wta-bpc
-```
+See [experiments/benchmark/README.md](experiments/benchmark/README.md) for the format.
 
 ## Layout
 
 ```
-src/wta_bpc/     package (branch-and-price, QUBO, solvers)
-tests/           tests on instances with known optimum
-experiments/     instance generators and MILP vs QUBO comparisons
+src/wta_bpc/            package: branch-and-price, QUBO, solvers, instance generator, benchmark I/O
+tests/                  tests on instances with known optimum
+experiments/            experiment scripts (results go to experiments/results/, not versioned)
+experiments/benchmark/  the step-2.5 benchmark (JSON)
 ```
