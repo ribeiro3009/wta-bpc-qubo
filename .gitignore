@@ -17,3 +17,6 @@ dist/
 # Personal files, kept out of the public repo
 CLAUDE.md
 Notes_etude_LP_WTA.pdf
+
+# Experiment outputs (regenerate with: python experiments/compare.py)
+experiments/results/

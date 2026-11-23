@@ -46,7 +46,10 @@ uv pip install --python .venv/bin/python -e ".[dev]"
 ```bash
 .venv/bin/python -m wta_bpc.bpc   # solves a random 20 x 20 instance
 .venv/bin/python -m pytest   # runs the tests
+.venv/bin/python experiments/compare.py   # MILP vs QUBO solvers in step 2.5 (~30 s)
 ```
+
+QAOA needs the optional extra: `uv pip install --python .venv/bin/python -e ".[dev,quantum]"`.
 
 With Docker:
 
