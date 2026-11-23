@@ -62,8 +62,9 @@ docker run --rm -v "${PWD}/experiments/results:/app/experiments/results" wta-bpc
 docker run --rm -v "%cd%\experiments\results:/app/experiments/results" wta-bpc python experiments/compare.py
 ```
 
-The CSV files then appear in `experiments/results/`. Running times are close to a local install
-(`compare.py`: about 2 min).
+The CSV files then appear in `experiments/results/`. Running times are about 1.4x those of a
+local install (`compare.py`: about 9 min). An optional last argument sets the output folder,
+e.g. `... python experiments/compare.py experiments/results/my_run`.
 
 ### 2. Full local install
 
@@ -107,9 +108,9 @@ Results go to `experiments/results/`. Times measured on a recent laptop with a l
 | command | what it does | time |
 |---|---|---|
 | `python -m wta_bpc.bpc` | solves a random 20 x 20 instance (demo) | < 1 s |
-| `python experiments/compare.py` | branch-and-price with each solver in step 2.5 (MILP, annealing, QAOA X / XY, random baselines): quality, time, tree size | ~1.5 min |
+| `python experiments/compare.py` | branch-and-price with each solver in step 2.5 (MILP, annealing, QAOA X / XY, random baselines): quality, time, tree size | ~6.5 min |
 | `python experiments/export_benchmark.py` | saves the step-2.5 problems to `experiments/benchmark/` | ~5 s |
-| `python experiments/benchmark_qaoa.py` | QAOA X vs XY on the benchmark, p = 1..3: P(optimal), P(feasible), approximation ratio | ~3 min |
+| `python experiments/benchmark_qaoa.py` | QAOA X vs XY on the benchmark, p = 1..3: P(optimal), P(feasible), approximation ratio | ~9.5 min |
 | `python experiments/find_hard_families.py` | tree size with / without step 2.5 on larger families | ~20 s |
 
 ## QUBO solvers for step 2.5
