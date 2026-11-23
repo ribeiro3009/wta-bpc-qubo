@@ -16,7 +16,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest"]
-# quantum = ["qiskit"]  # added in step 4 (QAOA solver)
+quantum = ["qiskit"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/wta_bpc"]
