@@ -51,9 +51,18 @@ def subspace_conflicts(Q, groups):
     return _sum_over_subspace(np.zeros(Q.shape[0]), (Q + Q.T > 0).astype(float), groups)
 
 
-def qaoa_xy_probabilities(Q, groups, reps=1, maxiter=200, seed=None):
+def qaoa_xy_probabilities(Q, groups, reps=1, maxiter=2000, starts=1, tol=1e-8, seed=None):
     """Run the XY-mixer QAOA (depth reps). Returns (probabilities, energies), two arrays of shape
-    (|S_1|, ..., |S_G|): probability of each one-hot vector after QAOA, and its y^T Q y."""
+    (|S_1|, ..., |S_G|): probability of each one-hot vector after QAOA, and its y^T Q y.
+    The angles are tuned by COBYLA from `starts` starting points (at most `maxiter` evaluations
+    each, final trust radius `tol`); the best run is kept.
+
+    Defaults (1 start, maxiter 2000, tol 1e-8): COBYLA runs until it converges instead of
+    stopping after a fixed budget. A stopped-early run follows a path that depends on the last
+    digits of the arithmetic, so two machines with different BLAS libraries ended in different
+    angles on most problems; converged runs end at the same point on most of them. More starts
+    did not help: random starts find valleys of almost equal <H>, and which one wins then
+    depends on rounding."""
     C = subspace_energies(Q, groups)
     if C.size > MAX_STATES:
         raise ValueError(f"one-hot subspace of {C.size} states is too large; max {MAX_STATES}")
@@ -75,20 +84,29 @@ def qaoa_xy_probabilities(Q, groups, reps=1, maxiter=200, seed=None):
     def mean_energy(x):
         return float(np.sum(np.abs(state(x)) ** 2 * C_norm))
 
+    # Starting points: a "linear ramp" (gamma grows, beta shrinks, like a discretized annealing),
+    # slightly perturbed, then random angles in [0, pi]. Keep the run with the lowest <H>; on a
+    # tie (within 1e-9) the earlier start wins, so tiny rounding differences cannot flip the choice.
     rng = np.random.default_rng(seed)
     steps = (np.arange(reps) + 0.5) / reps
-    x0 = np.concatenate([0.8 * steps, 0.8 * (1 - steps)]) + rng.normal(0, 0.05, 2 * reps)
-    result = minimize(mean_energy, x0, method="COBYLA", options={"maxiter": maxiter})
-    return np.abs(state(result.x)) ** 2, C
+    ramp = np.concatenate([0.8 * steps, 0.8 * (1 - steps)]) + rng.normal(0, 0.05, 2 * reps)
+    starting_points = [ramp] + [rng.uniform(0, np.pi, 2 * reps) for _ in range(starts - 1)]
+    best = None
+    for x0 in starting_points:
+        result = minimize(mean_energy, x0, method="COBYLA", tol=tol, options={"maxiter": maxiter})
+        if best is None or result.fun < best.fun - 1e-9:
+            best = result
+    return np.abs(state(best.x)) ** 2, C
 
 
-def solve(Q, groups, reps=1, maxiter=200, shots=1000, seed=None, info=None):
+def solve(Q, groups, reps=1, maxiter=2000, starts=1, tol=1e-8, shots=1000, seed=None, info=None):
     """Return the measured one-hot vector of lowest energy y^T Q y after the XY-mixer QAOA.
     info: optional dict; receives "probabilities" and "energies" (arrays over the subspace)."""
     K = Q.shape[0]
     if not groups:
         return np.zeros(K, dtype=int)
-    probs, C = qaoa_xy_probabilities(Q, groups, reps=reps, maxiter=maxiter, seed=seed)
+    probs, C = qaoa_xy_probabilities(Q, groups, reps=reps, maxiter=maxiter, starts=starts, tol=tol,
+                                     seed=seed)
     if info is not None:
         info["probabilities"], info["energies"] = probs, C
     rng = np.random.default_rng(seed)

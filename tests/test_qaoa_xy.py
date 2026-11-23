@@ -56,6 +56,19 @@ def test_more_layers_help_on_sparse_residual(sparse_residual):
     assert p_opt[1] > p_opt[0]
 
 
+def test_more_starts_never_worse(sparse_residual):
+    """The first start is the same for any number of starts and the best run is kept, so the
+    final mean energy with 4 starts is at most the one with 1 start."""
+    candidates, pool, weapons, targets = sparse_residual
+    Q, const, index = build_qubo(candidates, pool, weapons, targets)
+    groups = groups_by_target(index, targets)
+    mean_energy = []
+    for starts in [1, 4]:
+        probs, C = qaoa_xy.qaoa_xy_probabilities(Q, groups, reps=2, starts=starts, seed=0)
+        mean_energy.append((probs * C).sum())
+    assert mean_energy[1] <= mean_energy[0] + 1e-9
+
+
 def test_solve_hand_case(hand_case):
     Q, const, index = build_qubo(*hand_case, A=10, B=10)
     y = qaoa_xy.solve(Q, groups_by_target(index, hand_case[3]), seed=0)
