@@ -46,8 +46,27 @@ uv pip install --python .venv/bin/python -e ".[dev]"
 ```bash
 .venv/bin/python -m wta_bpc.bpc   # solves a random 20 x 20 instance
 .venv/bin/python -m pytest   # runs the tests
-.venv/bin/python experiments/compare.py   # MILP vs QUBO solvers in step 2.5 (~30 s)
+.venv/bin/python experiments/compare.py              # MILP vs QUBO solvers in step 2.5 (~1.5 min)
+.venv/bin/python experiments/export_benchmark.py     # save the step-2.5 problems to experiments/benchmark/
+.venv/bin/python experiments/benchmark_qaoa.py       # QAOA X vs XY on the benchmark, p = 1..3 (~3 min)
+.venv/bin/python experiments/find_hard_families.py   # tree size with / without step 2.5 (~20 s)
 ```
+
+### QUBO solvers for step 2.5
+
+| name | method |
+|---|---|
+| `bruteforce` | enumerates all 2^K vectors (validation, K <= 22) |
+| `annealing` | simulated annealing (classical reference) |
+| `qaoa` | QAOA with X mixer and penalties, Qiskit statevector (K <= 20) |
+| `qaoa_xy` | QAOA with an XY mixer per target, simulated in the one-column-per-target subspace (numpy). On hardware it still needs K qubits. |
+| `random`, `random_onehot` | baselines: best of `shots` uniform random vectors (over all vectors / one column per target) |
+
+### Benchmark
+
+`experiments/benchmark/` holds the residual problems of step 2.5 met by the branch-and-price on
+sparse instances with a fractional root LP (candidate columns, costs, free weapons and targets,
+exact optimum). Load them with `wta_bpc.benchmark.load` and `problem_from_dict`.
 
 QAOA needs the optional extra: `uv pip install --python .venv/bin/python -e ".[dev,quantum]"`.
 

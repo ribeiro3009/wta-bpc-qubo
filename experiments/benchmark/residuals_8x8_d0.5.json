@@ -1,0 +1,4532 @@
+[
+ {
+  "name": "8x8_d0.5_inst0_call0",
+  "weapons": [
+   0,
+   2,
+   6,
+   7
+  ],
+  "targets": [
+   0,
+   4,
+   6,
+   7
+  ],
+  "columns": [
+   {
+    "target": 0,
+    "weapons": [
+     7
+    ],
+    "cost": 2.577070970967447
+   },
+   {
+    "target": 4,
+    "weapons": [
+     2
+    ],
+    "cost": 1.3979859471981548
+   },
+   {
+    "target": 6,
+    "weapons": [],
+    "cost": 1.0
+   },
+   {
+    "target": 7,
+    "weapons": [
+     0,
+     6
+    ],
+    "cost": 0.11859657544905985
+   },
+   {
+    "target": 4,
+    "weapons": [
+     0,
+     2
+    ],
+    "cost": 1.0136612917197172
+   },
+   {
+    "target": 6,
+    "weapons": [
+     0
+    ],
+    "cost": 0.8645576635053909
+   },
+   {
+    "target": 0,
+    "weapons": [
+     0,
+     7
+    ],
+    "cost": 2.577070970967447
+   },
+   {
+    "target": 0,
+    "weapons": [
+     2,
+     7
+    ],
+    "cost": 0.35205227124359506
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2
+    ],
+    "cost": 0.6007526401398313
+   },
+   {
+    "target": 4,
+    "weapons": [
+     2,
+     6
+    ],
+    "cost": 0.924600098034397
+   },
+   {
+    "target": 6,
+    "weapons": [
+     7
+    ],
+    "cost": 0.325875757826411
+   },
+   {
+    "target": 0,
+    "weapons": [],
+    "cost": 4.0
+   },
+   {
+    "target": 4,
+    "weapons": [],
+    "cost": 5.0
+   },
+   {
+    "target": 7,
+    "weapons": [
+     6
+    ],
+    "cost": 0.5962307759571028
+   },
+   {
+    "target": 7,
+    "weapons": [
+     0
+    ],
+    "cost": 0.9945526147881417
+   },
+   {
+    "target": 7,
+    "weapons": [],
+    "cost": 5.0
+   },
+   {
+    "target": 0,
+    "weapons": [
+     2
+    ],
+    "cost": 0.5464378361476521
+   },
+   {
+    "target": 4,
+    "weapons": [
+     0,
+     6
+    ],
+    "cost": 2.3977902527379302
+   }
+  ],
+  "optimum": 5.093653493614662,
+  "variables": 18,
+  "onehot_states": 400
+ },
+ {
+  "name": "8x8_d0.5_inst1_call0",
+  "weapons": [
+   0,
+   1,
+   2,
+   5,
+   6,
+   7
+  ],
+  "targets": [
+   2,
+   4,
+   5,
+   6,
+   7
+  ],
+  "columns": [
+   {
+    "target": 2,
+    "weapons": [
+     2
+    ],
+    "cost": 1.5030608158854397
+   },
+   {
+    "target": 5,
+    "weapons": [
+     0
+    ],
+    "cost": 2.773932469287802
+   },
+   {
+    "target": 6,
+    "weapons": [
+     5
+    ],
+    "cost": 1.47295858293282
+   },
+   {
+    "target": 7,
+    "weapons": [
+     6,
+     7
+    ],
+    "cost": 0.37767758860993683
+   },
+   {
+    "target": 6,
+    "weapons": [
+     0,
+     5
+    ],
+    "cost": 0.493694835287982
+   },
+   {
+    "target": 2,
+    "weapons": [
+     0,
+     2
+    ],
+    "cost": 0.7739666375340893
+   },
+   {
+    "target": 5,
+    "weapons": [
+     0,
+     1
+    ],
+    "cost": 1.1922798034089779
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1,
+     5
+    ],
+    "cost": 0.4608732515577961
+   },
+   {
+    "target": 5,
+    "weapons": [
+     0,
+     2
+    ],
+    "cost": 2.325873635928605
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2,
+     5
+    ],
+    "cost": 1.0260327328604268
+   },
+   {
+    "target": 5,
+    "weapons": [
+     0,
+     5
+    ],
+    "cost": 1.4426762812755491
+   },
+   {
+    "target": 2,
+    "weapons": [
+     2,
+     5
+    ],
+    "cost": 0.6898913078392475
+   },
+   {
+    "target": 2,
+    "weapons": [
+     2,
+     6
+    ],
+    "cost": 0.17615502172359204
+   },
+   {
+    "target": 6,
+    "weapons": [
+     5,
+     7
+    ],
+    "cost": 1.121970641256482
+   },
+   {
+    "target": 2,
+    "weapons": [],
+    "cost": 10.0
+   },
+   {
+    "target": 4,
+    "weapons": [],
+    "cost": 5.0
+   },
+   {
+    "target": 5,
+    "weapons": [],
+    "cost": 10.0
+   },
+   {
+    "target": 6,
+    "weapons": [],
+    "cost": 4.0
+   },
+   {
+    "target": 7,
+    "weapons": [
+     7
+    ],
+    "cost": 0.9098573362124642
+   },
+   {
+    "target": 7,
+    "weapons": [
+     6
+    ],
+    "cost": 2.4905723584015416
+   },
+   {
+    "target": 7,
+    "weapons": [],
+    "cost": 6.0
+   },
+   {
+    "target": 4,
+    "weapons": [
+     0
+    ],
+    "cost": 0.8386210469582556
+   },
+   {
+    "target": 6,
+    "weapons": [
+     0
+    ],
+    "cost": 1.3406889806907731
+   },
+   {
+    "target": 4,
+    "weapons": [
+     7
+    ],
+    "cost": 1.3048478822880938
+   },
+   {
+    "target": 5,
+    "weapons": [
+     1,
+     5
+    ],
+    "cost": 2.235400330807435
+   },
+   {
+    "target": 5,
+    "weapons": [
+     1,
+     2
+    ],
+    "cost": 3.6038983676741014
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1
+    ],
+    "cost": 1.2515579376037786
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1,
+     2
+    ],
+    "cost": 1.6160200672130058
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2
+    ],
+    "cost": 2.7863179447109356
+   },
+   {
+    "target": 7,
+    "weapons": [
+     2,
+     6
+    ],
+    "cost": 1.941370931801902
+   }
+  ],
+  "optimum": 7.963719442916873,
+  "variables": 30,
+  "onehot_states": 5670
+ },
+ {
+  "name": "8x8_d0.5_inst2_call0",
+  "weapons": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   6
+  ],
+  "targets": [
+   1,
+   3,
+   4,
+   5,
+   6
+  ],
+  "columns": [
+   {
+    "target": 1,
+    "weapons": [
+     4,
+     6
+    ],
+    "cost": 0.5691001126996944
+   },
+   {
+    "target": 3,
+    "weapons": [],
+    "cost": 6.0
+   },
+   {
+    "target": 4,
+    "weapons": [
+     0
+    ],
+    "cost": 1.9424480284532195
+   },
+   {
+    "target": 5,
+    "weapons": [
+     2,
+     3
+    ],
+    "cost": 1.6846363011145062
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1
+    ],
+    "cost": 1.8148627699949564
+   },
+   {
+    "target": 3,
+    "weapons": [
+     0
+    ],
+    "cost": 1.57551015317891
+   },
+   {
+    "target": 4,
+    "weapons": [
+     0,
+     1
+    ],
+    "cost": 0.5813363294741578
+   },
+   {
+    "target": 5,
+    "weapons": [
+     1,
+     2,
+     3
+    ],
+    "cost": 0.7570817790046525
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1,
+     2
+    ],
+    "cost": 1.3246902909945455
+   },
+   {
+    "target": 1,
+    "weapons": [
+     2,
+     4,
+     6
+    ],
+    "cost": 0.5090738591591215
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     4,
+     6
+    ],
+    "cost": 0.5691001126996944
+   },
+   {
+    "target": 5,
+    "weapons": [
+     2,
+     3,
+     4
+    ],
+    "cost": 0.2304966613568556
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1,
+     4
+    ],
+    "cost": 1.5981654901652897
+   },
+   {
+    "target": 5,
+    "weapons": [
+     2,
+     3,
+     6
+    ],
+    "cost": 0.4876716817100498
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1,
+     6
+    ],
+    "cost": 1.1605147024280644
+   },
+   {
+    "target": 1,
+    "weapons": [
+     6
+    ],
+    "cost": 2.2379949538598716
+   },
+   {
+    "target": 1,
+    "weapons": [
+     4
+    ],
+    "cost": 2.2886115115959056
+   },
+   {
+    "target": 4,
+    "weapons": [],
+    "cost": 7.0
+   },
+   {
+    "target": 5,
+    "weapons": [
+     3
+    ],
+    "cost": 2.742378876811567
+   },
+   {
+    "target": 5,
+    "weapons": [
+     2
+    ],
+    "cost": 2.4571897272971306
+   },
+   {
+    "target": 6,
+    "weapons": [],
+    "cost": 8.0
+   },
+   {
+    "target": 1,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 5,
+    "weapons": [],
+    "cost": 4.0
+   },
+   {
+    "target": 4,
+    "weapons": [
+     1
+    ],
+    "cost": 2.0949617424562708
+   },
+   {
+    "target": 5,
+    "weapons": [
+     3,
+     4
+    ],
+    "cost": 0.3752199657946613
+   },
+   {
+    "target": 5,
+    "weapons": [
+     3,
+     6
+    ],
+    "cost": 0.793868989915534
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2,
+     6
+    ],
+    "cost": 3.7339405912212986
+   }
+  ],
+  "optimum": 11.880353239102298,
+  "variables": 27,
+  "onehot_states": 2592
+ },
+ {
+  "name": "8x8_d0.5_inst3_call0",
+  "weapons": [
+   0,
+   1,
+   4,
+   5,
+   6,
+   7
+  ],
+  "targets": [
+   4,
+   5,
+   6,
+   7
+  ],
+  "columns": [
+   {
+    "target": 4,
+    "weapons": [
+     0
+    ],
+    "cost": 1.8225437067160932
+   },
+   {
+    "target": 5,
+    "weapons": [
+     4,
+     7
+    ],
+    "cost": 2.3760718774102494
+   },
+   {
+    "target": 6,
+    "weapons": [
+     5
+    ],
+    "cost": 3.5041424877850367
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1,
+     6
+    ],
+    "cost": 3.5120312342873254
+   },
+   {
+    "target": 6,
+    "weapons": [
+     0,
+     5
+    ],
+    "cost": 0.41022462726581654
+   },
+   {
+    "target": 7,
+    "weapons": [
+     0,
+     1,
+     6
+    ],
+    "cost": 1.969752136242929
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1,
+     5
+    ],
+    "cost": 2.703202856031782
+   },
+   {
+    "target": 4,
+    "weapons": [
+     0,
+     1
+    ],
+    "cost": 1.355015923760277
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1,
+     4,
+     6
+    ],
+    "cost": 2.157701820313782
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1,
+     5,
+     6
+    ],
+    "cost": 1.2108821766553377
+   },
+   {
+    "target": 6,
+    "weapons": [
+     5,
+     6
+    ],
+    "cost": 1.8907601084139096
+   },
+   {
+    "target": 6,
+    "weapons": [
+     5,
+     7
+    ],
+    "cost": 1.4893056387491324
+   },
+   {
+    "target": 4,
+    "weapons": [],
+    "cost": 10.0
+   },
+   {
+    "target": 5,
+    "weapons": [
+     7
+    ],
+    "cost": 4.520650192210908
+   },
+   {
+    "target": 5,
+    "weapons": [
+     4
+    ],
+    "cost": 4.730436107075493
+   },
+   {
+    "target": 6,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 7,
+    "weapons": [
+     6
+    ],
+    "cost": 6.512878750376121
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1
+    ],
+    "cost": 5.392440683905723
+   },
+   {
+    "target": 5,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 7,
+    "weapons": [],
+    "cost": 10.0
+   },
+   {
+    "target": 6,
+    "weapons": [
+     0
+    ],
+    "cost": 1.0536163007817843
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1,
+     5
+    ],
+    "cost": 1.8592119139104333
+   },
+   {
+    "target": 4,
+    "weapons": [
+     4
+    ],
+    "cost": 3.6961778274979284
+   },
+   {
+    "target": 6,
+    "weapons": [
+     6,
+     7
+    ],
+    "cost": 2.0639504143159924
+   }
+  ],
+  "optimum": 10.476142142018013,
+  "variables": 24,
+  "onehot_states": 1024
+ },
+ {
+  "name": "8x8_d0.5_inst3_call1",
+  "weapons": [
+   0,
+   1,
+   2,
+   5,
+   6
+  ],
+  "targets": [
+   0,
+   3,
+   6,
+   7
+  ],
+  "columns": [
+   {
+    "target": 0,
+    "weapons": [],
+    "cost": 2.0
+   },
+   {
+    "target": 3,
+    "weapons": [],
+    "cost": 5.0
+   },
+   {
+    "target": 6,
+    "weapons": [
+     5
+    ],
+    "cost": 3.5041424877850367
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1,
+     6
+    ],
+    "cost": 3.5120312342873254
+   },
+   {
+    "target": 3,
+    "weapons": [
+     0
+    ],
+    "cost": 1.024295092470997
+   },
+   {
+    "target": 6,
+    "weapons": [
+     0,
+     5
+    ],
+    "cost": 0.41022462726581654
+   },
+   {
+    "target": 7,
+    "weapons": [
+     0,
+     1,
+     6
+    ],
+    "cost": 1.969752136242929
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1,
+     5
+    ],
+    "cost": 2.703202856031782
+   },
+   {
+    "target": 3,
+    "weapons": [
+     2
+    ],
+    "cost": 3.2176257060857063
+   },
+   {
+    "target": 0,
+    "weapons": [
+     2
+    ],
+    "cost": 0.25732017338458046
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1,
+     5,
+     6
+    ],
+    "cost": 1.2108821766553377
+   },
+   {
+    "target": 6,
+    "weapons": [
+     5,
+     6
+    ],
+    "cost": 1.8907601084139096
+   },
+   {
+    "target": 0,
+    "weapons": [
+     6
+    ],
+    "cost": 2.0
+   },
+   {
+    "target": 6,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 7,
+    "weapons": [
+     6
+    ],
+    "cost": 6.512878750376121
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1
+    ],
+    "cost": 5.392440683905723
+   },
+   {
+    "target": 7,
+    "weapons": [],
+    "cost": 10.0
+   },
+   {
+    "target": 6,
+    "weapons": [
+     0
+    ],
+    "cost": 1.0536163007817843
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1,
+     5
+    ],
+    "cost": 1.8592119139104333
+   }
+  ],
+  "optimum": 7.482124183522829,
+  "variables": 19,
+  "onehot_states": 378
+ },
+ {
+  "name": "8x8_d0.5_inst4_call0",
+  "weapons": [
+   0,
+   1,
+   4,
+   5,
+   6,
+   7
+  ],
+  "targets": [
+   0,
+   1,
+   3,
+   5,
+   7
+  ],
+  "columns": [
+   {
+    "target": 0,
+    "weapons": [
+     7
+    ],
+    "cost": 5.416103749511906
+   },
+   {
+    "target": 1,
+    "weapons": [],
+    "cost": 2.0
+   },
+   {
+    "target": 3,
+    "weapons": [
+     0
+    ],
+    "cost": 2.6206834984150147
+   },
+   {
+    "target": 5,
+    "weapons": [
+     1,
+     4
+    ],
+    "cost": 3.1610802299123515
+   },
+   {
+    "target": 7,
+    "weapons": [
+     5,
+     6
+    ],
+    "cost": 3.1433537111896417
+   },
+   {
+    "target": 1,
+    "weapons": [
+     0
+    ],
+    "cost": 0.49693092564725294
+   },
+   {
+    "target": 5,
+    "weapons": [
+     0,
+     1,
+     4
+    ],
+    "cost": 1.922334688361994
+   },
+   {
+    "target": 0,
+    "weapons": [
+     1,
+     7
+    ],
+    "cost": 5.416103749511906
+   },
+   {
+    "target": 1,
+    "weapons": [
+     1
+    ],
+    "cost": 2.0
+   },
+   {
+    "target": 0,
+    "weapons": [
+     4,
+     7
+    ],
+    "cost": 2.272933464790576
+   },
+   {
+    "target": 1,
+    "weapons": [
+     4
+    ],
+    "cost": 2.0
+   },
+   {
+    "target": 5,
+    "weapons": [
+     1,
+     4,
+     5
+    ],
+    "cost": 1.8835109947311444
+   },
+   {
+    "target": 1,
+    "weapons": [
+     5
+    ],
+    "cost": 1.144118626011477
+   },
+   {
+    "target": 3,
+    "weapons": [
+     0,
+     6
+    ],
+    "cost": 0.7393581002072311
+   },
+   {
+    "target": 1,
+    "weapons": [
+     6
+    ],
+    "cost": 0.3865547686316215
+   },
+   {
+    "target": 1,
+    "weapons": [
+     7
+    ],
+    "cost": 0.7426484438970158
+   },
+   {
+    "target": 5,
+    "weapons": [
+     1,
+     4,
+     7
+    ],
+    "cost": 2.500155141691317
+   },
+   {
+    "target": 0,
+    "weapons": [],
+    "cost": 8.0
+   },
+   {
+    "target": 3,
+    "weapons": [],
+    "cost": 7.0
+   },
+   {
+    "target": 5,
+    "weapons": [
+     4
+    ],
+    "cost": 3.8381829852632245
+   },
+   {
+    "target": 5,
+    "weapons": [
+     1
+    ],
+    "cost": 8.23587682517842
+   },
+   {
+    "target": 7,
+    "weapons": [
+     6
+    ],
+    "cost": 4.688863371158822
+   },
+   {
+    "target": 7,
+    "weapons": [
+     5
+    ],
+    "cost": 5.363097130147825
+   },
+   {
+    "target": 5,
+    "weapons": [],
+    "cost": 10.0
+   },
+   {
+    "target": 7,
+    "weapons": [],
+    "cost": 8.0
+   },
+   {
+    "target": 0,
+    "weapons": [
+     4
+    ],
+    "cost": 3.3572967873747404
+   },
+   {
+    "target": 3,
+    "weapons": [
+     6
+    ],
+    "cost": 1.9748690387758598
+   },
+   {
+    "target": 5,
+    "weapons": [
+     0,
+     1,
+     5
+    ],
+    "cost": 2.984255260028101
+   }
+  ],
+  "optimum": 16.341221189028914,
+  "variables": 28,
+  "onehot_states": 4480
+ },
+ {
+  "name": "8x8_d0.5_inst5_call0",
+  "weapons": [
+   1,
+   2,
+   5
+  ],
+  "targets": [
+   1,
+   3,
+   5
+  ],
+  "columns": [
+   {
+    "target": 1,
+    "weapons": [
+     5
+    ],
+    "cost": 0.8147988217066766
+   },
+   {
+    "target": 3,
+    "weapons": [],
+    "cost": 2.0
+   },
+   {
+    "target": 5,
+    "weapons": [
+     1,
+     2
+    ],
+    "cost": 1.0208250832457426
+   },
+   {
+    "target": 3,
+    "weapons": [
+     1
+    ],
+    "cost": 1.196029047420212
+   },
+   {
+    "target": 1,
+    "weapons": [
+     1,
+     5
+    ],
+    "cost": 0.8147988217066766
+   },
+   {
+    "target": 3,
+    "weapons": [
+     2
+    ],
+    "cost": 0.4949252082502513
+   },
+   {
+    "target": 5,
+    "weapons": [
+     1,
+     2,
+     5
+    ],
+    "cost": 0.12644313129033985
+   },
+   {
+    "target": 3,
+    "weapons": [
+     5
+    ],
+    "cost": 1.44816191212253
+   },
+   {
+    "target": 1,
+    "weapons": [],
+    "cost": 3.0
+   },
+   {
+    "target": 5,
+    "weapons": [
+     2
+    ],
+    "cost": 2.019629016300602
+   },
+   {
+    "target": 5,
+    "weapons": [
+     1
+    ],
+    "cost": 4.043614247989406
+   },
+   {
+    "target": 5,
+    "weapons": [],
+    "cost": 8.0
+   },
+   {
+    "target": 5,
+    "weapons": [
+     5
+    ],
+    "cost": 0.9909092820353536
+   }
+  ],
+  "optimum": 3.8356239049524192,
+  "variables": 13,
+  "onehot_states": 72
+ },
+ {
+  "name": "8x8_d0.5_inst6_call0",
+  "weapons": [
+   0,
+   1,
+   5,
+   7
+  ],
+  "targets": [
+   0,
+   1,
+   3
+  ],
+  "columns": [
+   {
+    "target": 1,
+    "weapons": [
+     1
+    ],
+    "cost": 2.3644457737021014
+   },
+   {
+    "target": 3,
+    "weapons": [
+     0,
+     5
+    ],
+    "cost": 0.6681722555529408
+   },
+   {
+    "target": 1,
+    "weapons": [
+     0,
+     1
+    ],
+    "cost": 2.044184294056338
+   },
+   {
+    "target": 3,
+    "weapons": [
+     0,
+     1,
+     5
+    ],
+    "cost": 0.19997595476057056
+   },
+   {
+    "target": 1,
+    "weapons": [
+     1,
+     5
+    ],
+    "cost": 0.6748197000001799
+   },
+   {
+    "target": 0,
+    "weapons": [],
+    "cost": 6.0
+   },
+   {
+    "target": 1,
+    "weapons": [],
+    "cost": 8.0
+   },
+   {
+    "target": 3,
+    "weapons": [
+     5
+    ],
+    "cost": 2.721783678191416
+   },
+   {
+    "target": 3,
+    "weapons": [
+     0
+    ],
+    "cost": 2.4549058064633966
+   },
+   {
+    "target": 3,
+    "weapons": [],
+    "cost": 10.0
+   },
+   {
+    "target": 3,
+    "weapons": [
+     1,
+     5
+    ],
+    "cost": 0.8145972616711566
+   },
+   {
+    "target": 0,
+    "weapons": [
+     0
+    ],
+    "cost": 2.75222014162075
+   },
+   {
+    "target": 1,
+    "weapons": [
+     5
+    ],
+    "cost": 2.283223265276545
+   },
+   {
+    "target": 0,
+    "weapons": [
+     7
+    ],
+    "cost": 3.9964783322058404
+   },
+   {
+    "target": 0,
+    "weapons": [
+     0,
+     7
+    ],
+    "cost": 1.8331980269079695
+   }
+  ],
+  "optimum": 6.919427478801487,
+  "variables": 15,
+  "onehot_states": 120
+ },
+ {
+  "name": "8x8_d0.5_inst7_call0",
+  "weapons": [
+   0,
+   1,
+   3,
+   4,
+   7
+  ],
+  "targets": [
+   0,
+   1,
+   3,
+   5
+  ],
+  "columns": [
+   {
+    "target": 0,
+    "weapons": [
+     0,
+     1
+    ],
+    "cost": 2.418180540082222
+   },
+   {
+    "target": 1,
+    "weapons": [],
+    "cost": 6.0
+   },
+   {
+    "target": 5,
+    "weapons": [],
+    "cost": 1.0
+   },
+   {
+    "target": 5,
+    "weapons": [
+     0
+    ],
+    "cost": 0.8447206987248524
+   },
+   {
+    "target": 1,
+    "weapons": [
+     0
+    ],
+    "cost": 6.0
+   },
+   {
+    "target": 5,
+    "weapons": [
+     1
+    ],
+    "cost": 0.27771862796790425
+   },
+   {
+    "target": 1,
+    "weapons": [
+     1
+    ],
+    "cost": 6.0
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3
+    ],
+    "cost": 3.806438017705796
+   },
+   {
+    "target": 0,
+    "weapons": [
+     0,
+     1,
+     3
+    ],
+    "cost": 0.4553688831341869
+   },
+   {
+    "target": 0,
+    "weapons": [
+     0,
+     1,
+     4
+    ],
+    "cost": 0.6414865732921002
+   },
+   {
+    "target": 1,
+    "weapons": [
+     4
+    ],
+    "cost": 6.0
+   },
+   {
+    "target": 1,
+    "weapons": [
+     7
+    ],
+    "cost": 5.27846802930197
+   },
+   {
+    "target": 0,
+    "weapons": [
+     1
+    ],
+    "cost": 5.972136010723455
+   },
+   {
+    "target": 0,
+    "weapons": [
+     0
+    ],
+    "cost": 4.049104936224129
+   },
+   {
+    "target": 3,
+    "weapons": [
+     4
+    ],
+    "cost": 7.351573238130045
+   },
+   {
+    "target": 0,
+    "weapons": [],
+    "cost": 10.0
+   },
+   {
+    "target": 3,
+    "weapons": [],
+    "cost": 10.0
+   },
+   {
+    "target": 0,
+    "weapons": [
+     0,
+     3
+    ],
+    "cost": 0.7624891367452703
+   },
+   {
+    "target": 3,
+    "weapons": [
+     0,
+     7
+    ],
+    "cost": 5.8672972195715
+   },
+   {
+    "target": 0,
+    "weapons": [
+     1,
+     4
+    ],
+    "cost": 1.5842675934457233
+   },
+   {
+    "target": 3,
+    "weapons": [
+     4,
+     7
+    ],
+    "cost": 5.194506664940157
+   },
+   {
+    "target": 0,
+    "weapons": [
+     0,
+     4
+    ],
+    "cost": 1.0741325585021153
+   },
+   {
+    "target": 3,
+    "weapons": [
+     0,
+     4
+    ],
+    "cost": 6.104559867936067
+   },
+   {
+    "target": 0,
+    "weapons": [
+     1,
+     3
+    ],
+    "cost": 1.1246161566729547
+   },
+   {
+    "target": 3,
+    "weapons": [
+     7
+    ],
+    "cost": 7.065843591135112
+   }
+  ],
+  "optimum": 12.224132795310927,
+  "variables": 25,
+  "onehot_states": 1080
+ },
+ {
+  "name": "8x8_d0.5_inst8_call0",
+  "weapons": [
+   0,
+   1,
+   3,
+   4,
+   5
+  ],
+  "targets": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "columns": [
+   {
+    "target": 0,
+    "weapons": [
+     5
+    ],
+    "cost": 0.78531480299948
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3
+    ],
+    "cost": 1.1801862960808696
+   },
+   {
+    "target": 2,
+    "weapons": [
+     0,
+     4
+    ],
+    "cost": 1.8977448607955518
+   },
+   {
+    "target": 4,
+    "weapons": [],
+    "cost": 2.0
+   },
+   {
+    "target": 4,
+    "weapons": [
+     0
+    ],
+    "cost": 0.34622921593460076
+   },
+   {
+    "target": 0,
+    "weapons": [
+     0,
+     5
+    ],
+    "cost": 0.78531480299948
+   },
+   {
+    "target": 1,
+    "weapons": [
+     0,
+     3
+    ],
+    "cost": 1.1801862960808696
+   },
+   {
+    "target": 0,
+    "weapons": [
+     1,
+     5
+    ],
+    "cost": 0.08321778338893263
+   },
+   {
+    "target": 1,
+    "weapons": [
+     1,
+     3
+    ],
+    "cost": 0.5028868288315739
+   },
+   {
+    "target": 4,
+    "weapons": [
+     1
+    ],
+    "cost": 1.3477905157988275
+   },
+   {
+    "target": 2,
+    "weapons": [
+     0,
+     3,
+     4
+    ],
+    "cost": 0.7476706450198503
+   },
+   {
+    "target": 0,
+    "weapons": [
+     3,
+     5
+    ],
+    "cost": 0.35611714122291893
+   },
+   {
+    "target": 4,
+    "weapons": [
+     4
+    ],
+    "cost": 0.4888690722652731
+   },
+   {
+    "target": 0,
+    "weapons": [
+     4,
+     5
+    ],
+    "cost": 0.48416687104852
+   },
+   {
+    "target": 2,
+    "weapons": [
+     0,
+     4,
+     5
+    ],
+    "cost": 0.24730899675138657
+   },
+   {
+    "target": 4,
+    "weapons": [
+     5
+    ],
+    "cost": 1.240924144734385
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     5
+    ],
+    "cost": 0.5430666082087442
+   },
+   {
+    "target": 0,
+    "weapons": [],
+    "cost": 5.0
+   },
+   {
+    "target": 1,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 2,
+    "weapons": [
+     4
+    ],
+    "cost": 3.5172386987127697
+   },
+   {
+    "target": 2,
+    "weapons": [
+     0
+    ],
+    "cost": 4.855997903528912
+   },
+   {
+    "target": 3,
+    "weapons": [],
+    "cost": 8.0
+   },
+   {
+    "target": 2,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 0,
+    "weapons": [
+     1
+    ],
+    "cost": 0.5298370989002466
+   },
+   {
+    "target": 2,
+    "weapons": [
+     5
+    ],
+    "cost": 1.1728557493389347
+   },
+   {
+    "target": 3,
+    "weapons": [
+     3
+    ],
+    "cost": 2.176084758605758
+   },
+   {
+    "target": 1,
+    "weapons": [
+     1
+    ],
+    "cost": 3.8349720501872637
+   },
+   {
+    "target": 2,
+    "weapons": [
+     4,
+     5
+    ],
+    "cost": 0.45835706995362946
+   }
+  ],
+  "optimum": 10.514609680869347,
+  "variables": 28,
+  "onehot_states": 3360
+ },
+ {
+  "name": "8x8_d0.5_inst9_call0",
+  "weapons": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "targets": [
+   0,
+   2,
+   3,
+   5,
+   7
+  ],
+  "columns": [
+   {
+    "target": 0,
+    "weapons": [
+     6
+    ],
+    "cost": 4.149153396348162
+   },
+   {
+    "target": 2,
+    "weapons": [
+     5
+    ],
+    "cost": 0.8474836228801254
+   },
+   {
+    "target": 3,
+    "weapons": [
+     4,
+     7
+    ],
+    "cost": 0.36304380423522903
+   },
+   {
+    "target": 5,
+    "weapons": [
+     1
+    ],
+    "cost": 1.394199355529782
+   },
+   {
+    "target": 7,
+    "weapons": [
+     2,
+     3
+    ],
+    "cost": 3.1165666954621787
+   },
+   {
+    "target": 0,
+    "weapons": [
+     1,
+     6
+    ],
+    "cost": 3.2032829721066265
+   },
+   {
+    "target": 2,
+    "weapons": [
+     1,
+     5
+    ],
+    "cost": 0.61079715986492
+   },
+   {
+    "target": 5,
+    "weapons": [
+     1,
+     2
+    ],
+    "cost": 0.9736537139656678
+   },
+   {
+    "target": 5,
+    "weapons": [
+     1,
+     3
+    ],
+    "cost": 0.7262533331140343
+   },
+   {
+    "target": 0,
+    "weapons": [
+     3,
+     6
+    ],
+    "cost": 4.149153396348162
+   },
+   {
+    "target": 7,
+    "weapons": [
+     2,
+     3,
+     4
+    ],
+    "cost": 0.8992411480041905
+   },
+   {
+    "target": 5,
+    "weapons": [
+     1,
+     4
+    ],
+    "cost": 0.7020265673329126
+   },
+   {
+    "target": 0,
+    "weapons": [
+     5,
+     6
+    ],
+    "cost": 0.7416803788261038
+   },
+   {
+    "target": 7,
+    "weapons": [
+     2,
+     3,
+     6
+    ],
+    "cost": 1.0898058715453305
+   },
+   {
+    "target": 5,
+    "weapons": [
+     1,
+     6
+    ],
+    "cost": 0.45493993712343955
+   },
+   {
+    "target": 0,
+    "weapons": [
+     6,
+     7
+    ],
+    "cost": 3.258776420992405
+   },
+   {
+    "target": 2,
+    "weapons": [
+     5,
+     7
+    ],
+    "cost": 0.8474836228801254
+   },
+   {
+    "target": 0,
+    "weapons": [],
+    "cost": 7.0
+   },
+   {
+    "target": 2,
+    "weapons": [],
+    "cost": 7.0
+   },
+   {
+    "target": 3,
+    "weapons": [
+     7
+    ],
+    "cost": 2.35602265193093
+   },
+   {
+    "target": 3,
+    "weapons": [
+     4
+    ],
+    "cost": 1.3868263259010676
+   },
+   {
+    "target": 5,
+    "weapons": [],
+    "cost": 8.0
+   },
+   {
+    "target": 7,
+    "weapons": [
+     3
+    ],
+    "cost": 6.168218574404776
+   },
+   {
+    "target": 7,
+    "weapons": [
+     2
+    ],
+    "cost": 4.547358353277277
+   },
+   {
+    "target": 3,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 7,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 0,
+    "weapons": [
+     5
+    ],
+    "cost": 1.2512824077201405
+   },
+   {
+    "target": 3,
+    "weapons": [
+     2,
+     7
+    ],
+    "cost": 1.2627878013597555
+   },
+   {
+    "target": 7,
+    "weapons": [
+     2,
+     4
+    ],
+    "cost": 1.3120758018564045
+   },
+   {
+    "target": 7,
+    "weapons": [
+     2,
+     6
+    ],
+    "cost": 1.5901273156252342
+   },
+   {
+    "target": 7,
+    "weapons": [
+     3,
+     4
+    ],
+    "cost": 1.7797520457575058
+   },
+   {
+    "target": 2,
+    "weapons": [
+     2
+    ],
+    "cost": 4.22678369361069
+   }
+  ],
+  "optimum": 9.390988806129656,
+  "variables": 32,
+  "onehot_states": 9450
+ },
+ {
+  "name": "8x8_d0.5_inst10_call0",
+  "weapons": [
+   0,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "targets": [
+   0,
+   1,
+   2,
+   4,
+   5,
+   7
+  ],
+  "columns": [
+   {
+    "target": 0,
+    "weapons": [
+     4,
+     5
+    ],
+    "cost": 1.5852017602085005
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     6
+    ],
+    "cost": 0.5929145817087874
+   },
+   {
+    "target": 2,
+    "weapons": [
+     0
+    ],
+    "cost": 1.9188931540788943
+   },
+   {
+    "target": 4,
+    "weapons": [
+     7
+    ],
+    "cost": 1.020977783856213
+   },
+   {
+    "target": 5,
+    "weapons": [],
+    "cost": 4.0
+   },
+   {
+    "target": 7,
+    "weapons": [
+     2
+    ],
+    "cost": 1.4636264698009638
+   },
+   {
+    "target": 5,
+    "weapons": [
+     0
+    ],
+    "cost": 1.3047146324928454
+   },
+   {
+    "target": 1,
+    "weapons": [
+     0,
+     3,
+     6
+    ],
+    "cost": 0.1763439772269058
+   },
+   {
+    "target": 7,
+    "weapons": [
+     0,
+     2
+    ],
+    "cost": 1.167768034012755
+   },
+   {
+    "target": 0,
+    "weapons": [
+     2,
+     4,
+     5
+    ],
+    "cost": 1.5852017602085005
+   },
+   {
+    "target": 7,
+    "weapons": [
+     2,
+     3
+    ],
+    "cost": 0.5778340580494505
+   },
+   {
+    "target": 5,
+    "weapons": [
+     4
+    ],
+    "cost": 3.5598465655324945
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     4,
+     6
+    ],
+    "cost": 0.27722779112935525
+   },
+   {
+    "target": 2,
+    "weapons": [
+     0,
+     4
+    ],
+    "cost": 1.9188931540788943
+   },
+   {
+    "target": 7,
+    "weapons": [
+     2,
+     5
+    ],
+    "cost": 0.7401336686596172
+   },
+   {
+    "target": 2,
+    "weapons": [
+     0,
+     5
+    ],
+    "cost": 1.6053905317118027
+   },
+   {
+    "target": 2,
+    "weapons": [
+     0,
+     6
+    ],
+    "cost": 0.5354941299152216
+   },
+   {
+    "target": 0,
+    "weapons": [
+     4,
+     5,
+     6
+    ],
+    "cost": 0.31967887624369296
+   },
+   {
+    "target": 0,
+    "weapons": [
+     4,
+     5,
+     7
+    ],
+    "cost": 0.27149593406830697
+   },
+   {
+    "target": 7,
+    "weapons": [
+     2,
+     7
+    ],
+    "cost": 1.1232619792645542
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     6,
+     7
+    ],
+    "cost": 0.5929145817087874
+   },
+   {
+    "target": 0,
+    "weapons": [
+     5
+    ],
+    "cost": 4.109751264237515
+   },
+   {
+    "target": 0,
+    "weapons": [
+     4
+    ],
+    "cost": 2.700020416811826
+   },
+   {
+    "target": 1,
+    "weapons": [
+     6
+    ],
+    "cost": 1.299705656634821
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3
+    ],
+    "cost": 3.1933400080043297
+   },
+   {
+    "target": 2,
+    "weapons": [],
+    "cost": 7.0
+   },
+   {
+    "target": 4,
+    "weapons": [],
+    "cost": 4.0
+   },
+   {
+    "target": 7,
+    "weapons": [],
+    "cost": 6.0
+   },
+   {
+    "target": 0,
+    "weapons": [],
+    "cost": 7.0
+   },
+   {
+    "target": 1,
+    "weapons": [],
+    "cost": 7.0
+   },
+   {
+    "target": 0,
+    "weapons": [
+     4,
+     7
+    ],
+    "cost": 0.46242982027058144
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     4
+    ],
+    "cost": 1.4931030945345316
+   },
+   {
+    "target": 0,
+    "weapons": [
+     7
+    ],
+    "cost": 1.198883060934894
+   },
+   {
+    "target": 2,
+    "weapons": [
+     6
+    ],
+    "cost": 1.9534484770236642
+   },
+   {
+    "target": 4,
+    "weapons": [
+     3
+    ],
+    "cost": 1.8941495707346858
+   }
+  ],
+  "optimum": 10.3153118703786,
+  "variables": 35,
+  "onehot_states": 23328
+ },
+ {
+  "name": "8x8_d0.5_inst10_call1",
+  "weapons": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "targets": [
+   0,
+   1,
+   3,
+   4,
+   7
+  ],
+  "columns": [
+   {
+    "target": 0,
+    "weapons": [
+     4,
+     5
+    ],
+    "cost": 1.5852017602085005
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     6
+    ],
+    "cost": 0.5929145817087874
+   },
+   {
+    "target": 3,
+    "weapons": [
+     1
+    ],
+    "cost": 4.751813015259827
+   },
+   {
+    "target": 4,
+    "weapons": [
+     7
+    ],
+    "cost": 1.020977783856213
+   },
+   {
+    "target": 7,
+    "weapons": [
+     2
+    ],
+    "cost": 1.4636264698009638
+   },
+   {
+    "target": 4,
+    "weapons": [
+     1,
+     7
+    ],
+    "cost": 0.3535095676903365
+   },
+   {
+    "target": 1,
+    "weapons": [
+     1,
+     3,
+     6
+    ],
+    "cost": 0.4344695913764386
+   },
+   {
+    "target": 3,
+    "weapons": [
+     1,
+     2
+    ],
+    "cost": 3.9662456046847216
+   },
+   {
+    "target": 0,
+    "weapons": [
+     2,
+     4,
+     5
+    ],
+    "cost": 1.5852017602085005
+   },
+   {
+    "target": 3,
+    "weapons": [
+     1,
+     3
+    ],
+    "cost": 3.8027707744074255
+   },
+   {
+    "target": 7,
+    "weapons": [
+     2,
+     3
+    ],
+    "cost": 0.5778340580494505
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     4,
+     6
+    ],
+    "cost": 0.27722779112935525
+   },
+   {
+    "target": 7,
+    "weapons": [
+     2,
+     5
+    ],
+    "cost": 0.7401336686596172
+   },
+   {
+    "target": 3,
+    "weapons": [
+     1,
+     6
+    ],
+    "cost": 2.5488514746130857
+   },
+   {
+    "target": 0,
+    "weapons": [
+     4,
+     5,
+     6
+    ],
+    "cost": 0.31967887624369296
+   },
+   {
+    "target": 0,
+    "weapons": [
+     4,
+     5,
+     7
+    ],
+    "cost": 0.27149593406830697
+   },
+   {
+    "target": 7,
+    "weapons": [
+     2,
+     7
+    ],
+    "cost": 1.1232619792645542
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     6,
+     7
+    ],
+    "cost": 0.5929145817087874
+   },
+   {
+    "target": 0,
+    "weapons": [
+     5
+    ],
+    "cost": 4.109751264237515
+   },
+   {
+    "target": 0,
+    "weapons": [
+     4
+    ],
+    "cost": 2.700020416811826
+   },
+   {
+    "target": 1,
+    "weapons": [
+     6
+    ],
+    "cost": 1.299705656634821
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3
+    ],
+    "cost": 3.1933400080043297
+   },
+   {
+    "target": 3,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 4,
+    "weapons": [],
+    "cost": 4.0
+   },
+   {
+    "target": 7,
+    "weapons": [],
+    "cost": 6.0
+   },
+   {
+    "target": 0,
+    "weapons": [],
+    "cost": 7.0
+   },
+   {
+    "target": 1,
+    "weapons": [],
+    "cost": 7.0
+   },
+   {
+    "target": 0,
+    "weapons": [
+     4,
+     7
+    ],
+    "cost": 0.46242982027058144
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     4
+    ],
+    "cost": 1.4931030945345316
+   },
+   {
+    "target": 0,
+    "weapons": [
+     7
+    ],
+    "cost": 1.198883060934894
+   },
+   {
+    "target": 4,
+    "weapons": [
+     3
+    ],
+    "cost": 1.8941495707346858
+   },
+   {
+    "target": 4,
+    "weapons": [
+     1
+    ],
+    "cost": 1.3849843680442793
+   }
+  ],
+  "optimum": 9.148231731559532,
+  "variables": 32,
+  "onehot_states": 9000
+ },
+ {
+  "name": "8x8_d0.5_inst11_call0",
+  "weapons": [
+   3,
+   4,
+   5,
+   7
+  ],
+  "targets": [
+   0,
+   3,
+   4,
+   6
+  ],
+  "columns": [
+   {
+    "target": 0,
+    "weapons": [
+     4
+    ],
+    "cost": 3.4664199400209164
+   },
+   {
+    "target": 3,
+    "weapons": [
+     5,
+     7
+    ],
+    "cost": 2.640566043780673
+   },
+   {
+    "target": 4,
+    "weapons": [],
+    "cost": 3.0
+   },
+   {
+    "target": 6,
+    "weapons": [
+     3
+    ],
+    "cost": 3.13982936580346
+   },
+   {
+    "target": 0,
+    "weapons": [
+     3,
+     4
+    ],
+    "cost": 0.8310723523701065
+   },
+   {
+    "target": 6,
+    "weapons": [
+     3,
+     4
+    ],
+    "cost": 1.3695915152251574
+   },
+   {
+    "target": 4,
+    "weapons": [
+     5
+    ],
+    "cost": 1.4131097297946196
+   },
+   {
+    "target": 6,
+    "weapons": [
+     3,
+     7
+    ],
+    "cost": 0.5297697351276618
+   },
+   {
+    "target": 0,
+    "weapons": [
+     4,
+     7
+    ],
+    "cost": 1.4151197185909319
+   },
+   {
+    "target": 0,
+    "weapons": [],
+    "cost": 8.0
+   },
+   {
+    "target": 3,
+    "weapons": [
+     7
+    ],
+    "cost": 3.894027838949689
+   },
+   {
+    "target": 3,
+    "weapons": [
+     5
+    ],
+    "cost": 6.102959551628697
+   },
+   {
+    "target": 6,
+    "weapons": [],
+    "cost": 10.0
+   },
+   {
+    "target": 3,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 0,
+    "weapons": [
+     3
+    ],
+    "cost": 1.917995780661455
+   },
+   {
+    "target": 6,
+    "weapons": [
+     7
+    ],
+    "cost": 1.6872564506131926
+   }
+  ],
+  "optimum": 11.621288354611996,
+  "variables": 16,
+  "onehot_states": 200
+ },
+ {
+  "name": "8x8_d0.5_inst12_call0",
+  "weapons": [
+   0,
+   2,
+   3,
+   5,
+   7
+  ],
+  "targets": [
+   0,
+   1,
+   5,
+   6
+  ],
+  "columns": [
+   {
+    "target": 0,
+    "weapons": [
+     2
+    ],
+    "cost": 0.9319279041160975
+   },
+   {
+    "target": 1,
+    "weapons": [
+     5
+    ],
+    "cost": 0.36429372493960954
+   },
+   {
+    "target": 5,
+    "weapons": [
+     3
+    ],
+    "cost": 4.811076480053461
+   },
+   {
+    "target": 5,
+    "weapons": [
+     0,
+     3
+    ],
+    "cost": 2.6696646607416565
+   },
+   {
+    "target": 0,
+    "weapons": [
+     2,
+     5
+    ],
+    "cost": 0.1713920748777682
+   },
+   {
+    "target": 0,
+    "weapons": [],
+    "cost": 4.0
+   },
+   {
+    "target": 1,
+    "weapons": [],
+    "cost": 3.0
+   },
+   {
+    "target": 5,
+    "weapons": [],
+    "cost": 8.0
+   },
+   {
+    "target": 6,
+    "weapons": [
+     7
+    ],
+    "cost": 2.171477459145346
+   },
+   {
+    "target": 6,
+    "weapons": [],
+    "cost": 5.0
+   },
+   {
+    "target": 1,
+    "weapons": [
+     7
+    ],
+    "cost": 1.2741641800242691
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2,
+     3
+    ],
+    "cost": 0.2682169656995744
+   },
+   {
+    "target": 0,
+    "weapons": [
+     5
+    ],
+    "cost": 0.7356452108399001
+   },
+   {
+    "target": 6,
+    "weapons": [
+     3
+    ],
+    "cost": 0.8312369950948978
+   },
+   {
+    "target": 5,
+    "weapons": [
+     0
+    ],
+    "cost": 4.439197209705536
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2,
+     7
+    ],
+    "cost": 0.7006751367105524
+   }
+  ],
+  "optimum": 6.137363748942709,
+  "variables": 16,
+  "onehot_states": 240
+ },
+ {
+  "name": "8x8_d0.5_inst13_call0",
+  "weapons": [
+   1,
+   4,
+   5,
+   6,
+   7
+  ],
+  "targets": [
+   0,
+   1,
+   4,
+   7
+  ],
+  "columns": [
+   {
+    "target": 0,
+    "weapons": [
+     7
+    ],
+    "cost": 5.280092968974714
+   },
+   {
+    "target": 1,
+    "weapons": [
+     4,
+     6
+    ],
+    "cost": 3.2607654196082727
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1
+    ],
+    "cost": 1.5901975125716432
+   },
+   {
+    "target": 1,
+    "weapons": [
+     1,
+     4,
+     6
+    ],
+    "cost": 2.149801779331802
+   },
+   {
+    "target": 0,
+    "weapons": [
+     1,
+     7
+    ],
+    "cost": 4.202169892272441
+   },
+   {
+    "target": 0,
+    "weapons": [
+     4,
+     7
+    ],
+    "cost": 4.021026891908534
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1,
+     4
+    ],
+    "cost": 0.5940610514405001
+   },
+   {
+    "target": 0,
+    "weapons": [
+     5,
+     7
+    ],
+    "cost": 5.280092968974714
+   },
+   {
+    "target": 1,
+    "weapons": [
+     4,
+     5,
+     6
+    ],
+    "cost": 3.2607654196082727
+   },
+   {
+    "target": 0,
+    "weapons": [
+     6,
+     7
+    ],
+    "cost": 1.7675452769704139
+   },
+   {
+    "target": 1,
+    "weapons": [
+     4,
+     6,
+     7
+    ],
+    "cost": 3.2607654196082727
+   },
+   {
+    "target": 0,
+    "weapons": [],
+    "cost": 6.0
+   },
+   {
+    "target": 1,
+    "weapons": [
+     6
+    ],
+    "cost": 4.277442280026099
+   },
+   {
+    "target": 1,
+    "weapons": [
+     4
+    ],
+    "cost": 7.623166383412605
+   },
+   {
+    "target": 4,
+    "weapons": [
+     5
+    ],
+    "cost": 1.7536998280286522
+   },
+   {
+    "target": 7,
+    "weapons": [],
+    "cost": 5.0
+   },
+   {
+    "target": 1,
+    "weapons": [],
+    "cost": 10.0
+   },
+   {
+    "target": 4,
+    "weapons": [],
+    "cost": 6.0
+   },
+   {
+    "target": 1,
+    "weapons": [
+     1,
+     4
+    ],
+    "cost": 5.025904824877461
+   },
+   {
+    "target": 4,
+    "weapons": [
+     4,
+     5
+    ],
+    "cost": 0.3815514696053379
+   },
+   {
+    "target": 1,
+    "weapons": [
+     1,
+     6,
+     7
+    ],
+    "cost": 2.820090328881706
+   },
+   {
+    "target": 4,
+    "weapons": [
+     5,
+     7
+    ],
+    "cost": 1.2030653456617695
+   },
+   {
+    "target": 0,
+    "weapons": [
+     6
+    ],
+    "cost": 2.008538812505381
+   },
+   {
+    "target": 1,
+    "weapons": [
+     1,
+     6
+    ],
+    "cost": 2.820090328881706
+   },
+   {
+    "target": 7,
+    "weapons": [
+     4
+    ],
+    "cost": 1.8678844820974272
+   }
+  ],
+  "optimum": 11.529284231177794,
+  "variables": 25,
+  "onehot_states": 1120
+ },
+ {
+  "name": "8x8_d0.5_inst14_call0",
+  "weapons": [
+   1,
+   2,
+   3,
+   5,
+   6
+  ],
+  "targets": [
+   0,
+   1,
+   2,
+   3,
+   6
+  ],
+  "columns": [
+   {
+    "target": 0,
+    "weapons": [],
+    "cost": 3.0
+   },
+   {
+    "target": 1,
+    "weapons": [],
+    "cost": 4.0
+   },
+   {
+    "target": 2,
+    "weapons": [
+     2,
+     5
+    ],
+    "cost": 0.5510272526185842
+   },
+   {
+    "target": 3,
+    "weapons": [
+     3
+    ],
+    "cost": 0.9106535508423521
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1,
+     6
+    ],
+    "cost": 0.2481897336364624
+   },
+   {
+    "target": 3,
+    "weapons": [
+     1,
+     3
+    ],
+    "cost": 0.30571990609917993
+   },
+   {
+    "target": 0,
+    "weapons": [
+     1
+    ],
+    "cost": 3.0
+   },
+   {
+    "target": 1,
+    "weapons": [
+     2
+    ],
+    "cost": 2.569936597045258
+   },
+   {
+    "target": 3,
+    "weapons": [
+     2,
+     3
+    ],
+    "cost": 0.7827592299486034
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1,
+     2,
+     6
+    ],
+    "cost": 0.19243203407722828
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3
+    ],
+    "cost": 1.126402885240653
+   },
+   {
+    "target": 0,
+    "weapons": [
+     3
+    ],
+    "cost": 1.835502824946108
+   },
+   {
+    "target": 0,
+    "weapons": [
+     5
+    ],
+    "cost": 1.5919499711556067
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1,
+     5,
+     6
+    ],
+    "cost": 0.19765459747003994
+   },
+   {
+    "target": 1,
+    "weapons": [
+     5
+    ],
+    "cost": 4.0
+   },
+   {
+    "target": 2,
+    "weapons": [
+     2,
+     5,
+     6
+    ],
+    "cost": 0.15577784317200163
+   },
+   {
+    "target": 0,
+    "weapons": [
+     6
+    ],
+    "cost": 3.0
+   },
+   {
+    "target": 1,
+    "weapons": [
+     6
+    ],
+    "cost": 4.0
+   },
+   {
+    "target": 2,
+    "weapons": [
+     5
+    ],
+    "cost": 1.328573713944344
+   },
+   {
+    "target": 2,
+    "weapons": [
+     2
+    ],
+    "cost": 2.4885058924551364
+   },
+   {
+    "target": 3,
+    "weapons": [],
+    "cost": 4.0
+   },
+   {
+    "target": 6,
+    "weapons": [
+     6
+    ],
+    "cost": 1.863580058237992
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1
+    ],
+    "cost": 1.1986110244386945
+   },
+   {
+    "target": 2,
+    "weapons": [],
+    "cost": 6.0
+   },
+   {
+    "target": 6,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 2,
+    "weapons": [
+     2,
+     6
+    ],
+    "cost": 0.7035116299697951
+   },
+   {
+    "target": 3,
+    "weapons": [
+     1
+    ],
+    "cost": 1.3428593379617961
+   }
+  ],
+  "optimum": 7.883869534059025,
+  "variables": 27,
+  "onehot_states": 4500
+ },
+ {
+  "name": "8x8_d0.5_inst15_call0",
+  "weapons": [
+   3,
+   4,
+   5,
+   7
+  ],
+  "targets": [
+   2,
+   3,
+   6
+  ],
+  "columns": [
+   {
+    "target": 3,
+    "weapons": [
+     5,
+     7
+    ],
+    "cost": 1.879462564064192
+   },
+   {
+    "target": 6,
+    "weapons": [
+     3
+    ],
+    "cost": 0.578457846673194
+   },
+   {
+    "target": 6,
+    "weapons": [
+     3,
+     4
+    ],
+    "cost": 0.09132195966211741
+   },
+   {
+    "target": 2,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 3,
+    "weapons": [
+     7
+    ],
+    "cost": 3.992669185184935
+   },
+   {
+    "target": 3,
+    "weapons": [
+     5
+    ],
+    "cost": 4.707283466003302
+   },
+   {
+    "target": 6,
+    "weapons": [],
+    "cost": 4.0
+   },
+   {
+    "target": 3,
+    "weapons": [],
+    "cost": 10.0
+   },
+   {
+    "target": 2,
+    "weapons": [
+     4,
+     5,
+     7
+    ],
+    "cost": 1.6347997607651121
+   },
+   {
+    "target": 2,
+    "weapons": [
+     3,
+     4
+    ],
+    "cost": 3.5611997046605177
+   },
+   {
+    "target": 6,
+    "weapons": [
+     4
+    ],
+    "cost": 0.631485666154068
+   },
+   {
+    "target": 2,
+    "weapons": [
+     7
+    ],
+    "cost": 4.122720766828355
+   }
+  ],
+  "optimum": 8.921326192493774,
+  "variables": 12,
+  "onehot_states": 64
+ },
+ {
+  "name": "8x8_d0.5_inst16_call0",
+  "weapons": [
+   3,
+   5,
+   7
+  ],
+  "targets": [
+   0,
+   1,
+   2
+  ],
+  "columns": [
+   {
+    "target": 0,
+    "weapons": [
+     3
+    ],
+    "cost": 1.7639779739990042
+   },
+   {
+    "target": 2,
+    "weapons": [
+     5
+    ],
+    "cost": 0.6738585539235928
+   },
+   {
+    "target": 2,
+    "weapons": [
+     5,
+     7
+    ],
+    "cost": 0.23254257366669773
+   },
+   {
+    "target": 0,
+    "weapons": [
+     3,
+     7
+    ],
+    "cost": 1.7639779739990042
+   },
+   {
+    "target": 0,
+    "weapons": [],
+    "cost": 4.0
+   },
+   {
+    "target": 1,
+    "weapons": [
+     7
+    ],
+    "cost": 3.9277262690734505
+   },
+   {
+    "target": 2,
+    "weapons": [],
+    "cost": 3.0
+   },
+   {
+    "target": 1,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3
+    ],
+    "cost": 1.0878871341786605
+   },
+   {
+    "target": 2,
+    "weapons": [
+     7
+    ],
+    "cost": 1.0352732289856714
+   },
+   {
+    "target": 1,
+    "weapons": [
+     5,
+     7
+    ],
+    "cost": 0.9407397090160642
+   }
+  ],
+  "optimum": 5.320429707845358,
+  "variables": 11,
+  "onehot_states": 48
+ },
+ {
+  "name": "8x8_d0.5_inst16_call1",
+  "weapons": [
+   0,
+   3,
+   4,
+   5,
+   7
+  ],
+  "targets": [
+   1,
+   2,
+   3,
+   5
+  ],
+  "columns": [
+   {
+    "target": 1,
+    "weapons": [
+     0,
+     7
+    ],
+    "cost": 0.9367183871435844
+   },
+   {
+    "target": 2,
+    "weapons": [
+     5
+    ],
+    "cost": 0.6738585539235928
+   },
+   {
+    "target": 3,
+    "weapons": [
+     4
+    ],
+    "cost": 1.0965449043936795
+   },
+   {
+    "target": 3,
+    "weapons": [
+     0,
+     4
+    ],
+    "cost": 0.2223247846222027
+   },
+   {
+    "target": 1,
+    "weapons": [
+     0,
+     3,
+     7
+    ],
+    "cost": 0.11322709796912124
+   },
+   {
+    "target": 1,
+    "weapons": [
+     0,
+     4,
+     7
+    ],
+    "cost": 0.9367183871435844
+   },
+   {
+    "target": 1,
+    "weapons": [
+     0,
+     5,
+     7
+    ],
+    "cost": 0.2243558034810123
+   },
+   {
+    "target": 3,
+    "weapons": [
+     4,
+     5
+    ],
+    "cost": 0.5925095737913032
+   },
+   {
+    "target": 2,
+    "weapons": [
+     5,
+     7
+    ],
+    "cost": 0.23254257366669773
+   },
+   {
+    "target": 1,
+    "weapons": [
+     7
+    ],
+    "cost": 3.9277262690734505
+   },
+   {
+    "target": 1,
+    "weapons": [
+     0
+    ],
+    "cost": 2.146398426660472
+   },
+   {
+    "target": 2,
+    "weapons": [],
+    "cost": 3.0
+   },
+   {
+    "target": 3,
+    "weapons": [],
+    "cost": 2.0
+   },
+   {
+    "target": 5,
+    "weapons": [],
+    "cost": 6.0
+   },
+   {
+    "target": 1,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3
+    ],
+    "cost": 1.0878871341786605
+   },
+   {
+    "target": 2,
+    "weapons": [
+     7
+    ],
+    "cost": 1.0352732289856714
+   },
+   {
+    "target": 5,
+    "weapons": [
+     3
+    ],
+    "cost": 1.2199978616583784
+   },
+   {
+    "target": 1,
+    "weapons": [
+     5,
+     7
+    ],
+    "cost": 0.9407397090160642
+   },
+   {
+    "target": 5,
+    "weapons": [
+     0
+    ],
+    "cost": 1.719009141577177
+   },
+   {
+    "target": 1,
+    "weapons": [
+     0,
+     5
+    ],
+    "cost": 0.5140893466095436
+   },
+   {
+    "target": 3,
+    "weapons": [
+     0
+    ],
+    "cost": 0.40550055676038976
+   },
+   {
+    "target": 5,
+    "weapons": [
+     0,
+     4
+    ],
+    "cost": 1.0393482988439522
+   }
+  ],
+  "optimum": 3.8659053416472733,
+  "variables": 23,
+  "onehot_states": 800
+ },
+ {
+  "name": "8x8_d0.5_inst17_call0",
+  "weapons": [
+   0,
+   1,
+   3,
+   5,
+   6
+  ],
+  "targets": [
+   0,
+   5,
+   7
+  ],
+  "columns": [
+   {
+    "target": 0,
+    "weapons": [
+     1,
+     6
+    ],
+    "cost": 2.295972539295611
+   },
+   {
+    "target": 5,
+    "weapons": [
+     3
+    ],
+    "cost": 3.796299968157978
+   },
+   {
+    "target": 7,
+    "weapons": [
+     0,
+     5
+    ],
+    "cost": 0.2355782252919488
+   },
+   {
+    "target": 5,
+    "weapons": [
+     0,
+     3
+    ],
+    "cost": 2.769618948823003
+   },
+   {
+    "target": 0,
+    "weapons": [
+     0,
+     1,
+     6
+    ],
+    "cost": 1.674015275606293
+   },
+   {
+    "target": 5,
+    "weapons": [
+     1,
+     3
+    ],
+    "cost": 3.0177737156046325
+   },
+   {
+    "target": 0,
+    "weapons": [
+     1,
+     3,
+     6
+    ],
+    "cost": 0.25977994312376373
+   },
+   {
+    "target": 0,
+    "weapons": [
+     1,
+     5,
+     6
+    ],
+    "cost": 2.295972539295611
+   },
+   {
+    "target": 5,
+    "weapons": [
+     3,
+     6
+    ],
+    "cost": 2.673673346661431
+   },
+   {
+    "target": 7,
+    "weapons": [
+     0,
+     5,
+     6
+    ],
+    "cost": 0.20422383340293462
+   },
+   {
+    "target": 0,
+    "weapons": [
+     6
+    ],
+    "cost": 3.181427015221173
+   },
+   {
+    "target": 0,
+    "weapons": [
+     1
+    ],
+    "cost": 5.7734407316233725
+   },
+   {
+    "target": 5,
+    "weapons": [],
+    "cost": 10.0
+   },
+   {
+    "target": 7,
+    "weapons": [
+     5
+    ],
+    "cost": 1.4129509941904193
+   },
+   {
+    "target": 7,
+    "weapons": [
+     0
+    ],
+    "cost": 1.1670946719482647
+   },
+   {
+    "target": 0,
+    "weapons": [],
+    "cost": 8.0
+   },
+   {
+    "target": 7,
+    "weapons": [],
+    "cost": 7.0
+   },
+   {
+    "target": 0,
+    "weapons": [
+     3
+    ],
+    "cost": 0.9051674222670361
+   },
+   {
+    "target": 5,
+    "weapons": [
+     0,
+     1,
+     6
+    ],
+    "cost": 4.084448986413725
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1,
+     5
+    ],
+    "cost": 0.4085255807011854
+   }
+  ],
+  "optimum": 6.327850732745539,
+  "variables": 20,
+  "onehot_states": 288
+ },
+ {
+  "name": "8x8_d0.5_inst18_call0",
+  "weapons": [
+   4,
+   5,
+   7
+  ],
+  "targets": [
+   1,
+   4,
+   6
+  ],
+  "columns": [
+   {
+    "target": 4,
+    "weapons": [
+     7
+    ],
+    "cost": 0.450867818084135
+   },
+   {
+    "target": 6,
+    "weapons": [],
+    "cost": 3.0
+   },
+   {
+    "target": 6,
+    "weapons": [
+     4
+    ],
+    "cost": 2.2187071530185634
+   },
+   {
+    "target": 6,
+    "weapons": [
+     5
+    ],
+    "cost": 1.4573395130855604
+   },
+   {
+    "target": 4,
+    "weapons": [
+     5,
+     7
+    ],
+    "cost": 0.14790044507596622
+   },
+   {
+    "target": 1,
+    "weapons": [
+     4,
+     5
+    ],
+    "cost": 0.3390078366433129
+   },
+   {
+    "target": 4,
+    "weapons": [],
+    "cost": 2.0
+   },
+   {
+    "target": 1,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 1,
+    "weapons": [
+     4,
+     7
+    ],
+    "cost": 0.5030584609224468
+   },
+   {
+    "target": 1,
+    "weapons": [
+     5
+    ],
+    "cost": 1.0562405487162057
+   },
+   {
+    "target": 4,
+    "weapons": [
+     4
+    ],
+    "cost": 0.8250071446905409
+   }
+  ],
+  "optimum": 3.7258155198189042,
+  "variables": 11,
+  "onehot_states": 48
+ },
+ {
+  "name": "8x8_d0.5_inst19_call0",
+  "weapons": [
+   1,
+   2,
+   3,
+   5,
+   6
+  ],
+  "targets": [
+   1,
+   3,
+   6,
+   7
+  ],
+  "columns": [
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     5
+    ],
+    "cost": 1.5671488535136755
+   },
+   {
+    "target": 3,
+    "weapons": [],
+    "cost": 2.0
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2,
+     6
+    ],
+    "cost": 2.00042148845259
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1
+    ],
+    "cost": 4.447343832296295
+   },
+   {
+    "target": 3,
+    "weapons": [
+     1
+    ],
+    "cost": 1.041984561491328
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1,
+     2,
+     6
+    ],
+    "cost": 1.5455378736294447
+   },
+   {
+    "target": 1,
+    "weapons": [
+     1,
+     3,
+     5
+    ],
+    "cost": 1.3663134948983868
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1,
+     2
+    ],
+    "cost": 3.049729268984403
+   },
+   {
+    "target": 1,
+    "weapons": [
+     2,
+     3,
+     5
+    ],
+    "cost": 1.2055066596550705
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2,
+     3,
+     6
+    ],
+    "cost": 1.5176310120189385
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1,
+     5
+    ],
+    "cost": 0.5402305926428254
+   },
+   {
+    "target": 3,
+    "weapons": [
+     6
+    ],
+    "cost": 0.8014820600646329
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     5,
+     6
+    ],
+    "cost": 1.106050142572062
+   },
+   {
+    "target": 1,
+    "weapons": [
+     5
+    ],
+    "cost": 2.0709568861652983
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3
+    ],
+    "cost": 6.053815466590413
+   },
+   {
+    "target": 6,
+    "weapons": [
+     6
+    ],
+    "cost": 3.83840992098206
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2
+    ],
+    "cost": 3.648112293224134
+   },
+   {
+    "target": 7,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 1,
+    "weapons": [],
+    "cost": 8.0
+   },
+   {
+    "target": 6,
+    "weapons": [],
+    "cost": 7.0
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     6
+    ],
+    "cost": 4.272614847603466
+   },
+   {
+    "target": 6,
+    "weapons": [
+     3,
+     6
+    ],
+    "cost": 2.91203127268426
+   },
+   {
+    "target": 7,
+    "weapons": [
+     5
+    ],
+    "cost": 1.09325375260563
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2,
+     3
+    ],
+    "cost": 2.7676609072057006
+   }
+  ],
+  "optimum": 10.014914174262561,
+  "variables": 24,
+  "onehot_states": 960
+ },
+ {
+  "name": "8x8_d0.5_inst19_call1",
+  "weapons": [
+   1,
+   2,
+   3,
+   5,
+   6
+  ],
+  "targets": [
+   1,
+   6,
+   7
+  ],
+  "columns": [
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     5
+    ],
+    "cost": 1.5671488535136755
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2,
+     6
+    ],
+    "cost": 2.00042148845259
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1
+    ],
+    "cost": 4.447343832296295
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1,
+     2,
+     6
+    ],
+    "cost": 1.5455378736294447
+   },
+   {
+    "target": 1,
+    "weapons": [
+     1,
+     3,
+     5
+    ],
+    "cost": 1.3663134948983868
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1,
+     2
+    ],
+    "cost": 3.049729268984403
+   },
+   {
+    "target": 1,
+    "weapons": [
+     2,
+     3,
+     5
+    ],
+    "cost": 1.2055066596550705
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2,
+     3,
+     6
+    ],
+    "cost": 1.5176310120189385
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1,
+     5
+    ],
+    "cost": 0.5402305926428254
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     5,
+     6
+    ],
+    "cost": 1.106050142572062
+   },
+   {
+    "target": 1,
+    "weapons": [
+     5
+    ],
+    "cost": 2.0709568861652983
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3
+    ],
+    "cost": 6.053815466590413
+   },
+   {
+    "target": 6,
+    "weapons": [
+     6
+    ],
+    "cost": 3.83840992098206
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2
+    ],
+    "cost": 3.648112293224134
+   },
+   {
+    "target": 7,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 1,
+    "weapons": [],
+    "cost": 8.0
+   },
+   {
+    "target": 6,
+    "weapons": [],
+    "cost": 7.0
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     6
+    ],
+    "cost": 4.272614847603466
+   },
+   {
+    "target": 6,
+    "weapons": [
+     3,
+     6
+    ],
+    "cost": 2.91203127268426
+   },
+   {
+    "target": 7,
+    "weapons": [
+     5
+    ],
+    "cost": 1.09325375260563
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2,
+     3
+    ],
+    "cost": 2.7676609072057006
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1,
+     3,
+     6
+    ],
+    "cost": 2.249853166998482
+   }
+  ],
+  "optimum": 8.014914174262561,
+  "variables": 22,
+  "onehot_states": 360
+ },
+ {
+  "name": "8x8_d0.5_inst19_call2",
+  "weapons": [
+   1,
+   2,
+   3,
+   5,
+   6
+  ],
+  "targets": [
+   1,
+   6,
+   7
+  ],
+  "columns": [
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     5
+    ],
+    "cost": 1.5671488535136755
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2,
+     6
+    ],
+    "cost": 2.00042148845259
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1
+    ],
+    "cost": 4.447343832296295
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1,
+     2,
+     6
+    ],
+    "cost": 1.5455378736294447
+   },
+   {
+    "target": 1,
+    "weapons": [
+     1,
+     3,
+     5
+    ],
+    "cost": 1.3663134948983868
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1,
+     2
+    ],
+    "cost": 3.049729268984403
+   },
+   {
+    "target": 1,
+    "weapons": [
+     2,
+     3,
+     5
+    ],
+    "cost": 1.2055066596550705
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2,
+     3,
+     6
+    ],
+    "cost": 1.5176310120189385
+   },
+   {
+    "target": 7,
+    "weapons": [
+     1,
+     5
+    ],
+    "cost": 0.5402305926428254
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     5,
+     6
+    ],
+    "cost": 1.106050142572062
+   },
+   {
+    "target": 1,
+    "weapons": [
+     5
+    ],
+    "cost": 2.0709568861652983
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3
+    ],
+    "cost": 6.053815466590413
+   },
+   {
+    "target": 6,
+    "weapons": [
+     6
+    ],
+    "cost": 3.83840992098206
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2
+    ],
+    "cost": 3.648112293224134
+   },
+   {
+    "target": 7,
+    "weapons": [],
+    "cost": 9.0
+   },
+   {
+    "target": 1,
+    "weapons": [],
+    "cost": 8.0
+   },
+   {
+    "target": 6,
+    "weapons": [],
+    "cost": 7.0
+   },
+   {
+    "target": 1,
+    "weapons": [
+     3,
+     6
+    ],
+    "cost": 4.272614847603466
+   },
+   {
+    "target": 6,
+    "weapons": [
+     3,
+     6
+    ],
+    "cost": 2.91203127268426
+   },
+   {
+    "target": 7,
+    "weapons": [
+     5
+    ],
+    "cost": 1.09325375260563
+   },
+   {
+    "target": 6,
+    "weapons": [
+     2,
+     3
+    ],
+    "cost": 2.7676609072057006
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1,
+     3,
+     6
+    ],
+    "cost": 2.249853166998482
+   },
+   {
+    "target": 6,
+    "weapons": [
+     1,
+     2,
+     3
+    ],
+    "cost": 2.1383117398718223
+   }
+  ],
+  "optimum": 8.014914174262561,
+  "variables": 23,
+  "onehot_states": 400
+ }
+]
