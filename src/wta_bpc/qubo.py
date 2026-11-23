@@ -62,3 +62,32 @@ def is_feasible(y, index, weapons, targets):
     targets_ok = all(sum(j == g for j, t in chosen) == 1 for g in targets)
     weapons_ok = all(sum(i in t for j, t in chosen) <= 1 for i in weapons)
     return targets_ok and weapons_ok
+
+
+def get_solver(name):
+    """The solve(Q, ...) function of a solver: "bruteforce", "annealing" or "qaoa".
+    QAOA is imported only when asked for, since qiskit is optional."""
+    if name == "bruteforce":
+        from wta_bpc.solvers import bruteforce
+        return bruteforce.solve
+    if name == "annealing":
+        from wta_bpc.solvers import annealing
+        return annealing.solve
+    if name == "qaoa":
+        from wta_bpc.solvers import qaoa
+        return qaoa.solve
+    raise ValueError(f"unknown solver {name!r}")
+
+
+def solve_residual_qubo(candidates, pool, weapons, targets, solver="annealing", A=None, B=None,
+                        **solver_options):
+    """Same interface as bpc.solve_residual, through a QUBO: build it, solve it, check the answer.
+    Returns the chosen columns, or None if the solver's answer breaks a rule
+    (the branch-and-price stays exact: it just gets no incumbent from this node)."""
+    if not targets:
+        return []
+    Q, const, index = build_qubo(candidates, pool, weapons, targets, A=A, B=B)
+    y = get_solver(solver)(Q, **solver_options)
+    if not is_feasible(y, index, weapons, targets):
+        return None
+    return [index[k] for k in np.flatnonzero(np.asarray(y) > 0.5)]

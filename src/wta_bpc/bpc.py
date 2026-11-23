@@ -165,16 +165,18 @@ def solve_residual(candidates, pool, weapons, targets):
     return [candidates[k] for k in np.flatnonzero(res.x > 0.5)] if res.status == 0 else None
 
 
-def primal_heuristic(pool, z, n, m):
+def primal_heuristic(pool, z, n, m, residual_solver=None):
     """Freeze the columns at 1 in the LP solution, solve the leftover problem over the pool
-    (paper section 2.5). Returns a full plan (list of columns) or None."""
+    (paper section 2.5). Returns a full plan (list of columns) or None.
+    residual_solver: function with the interface of solve_residual (default: solve_residual, exact MILP)."""
+    residual_solver = residual_solver or solve_residual
     cols = list(pool)
     frozen = [cols[k] for k in range(len(cols)) if z[k] > 1 - EPS]
     used_w = set().union(*(t for j, t in frozen))
     used_t = {j for j, t in frozen}
     candidates = [(j, t) for j, t in cols if j not in used_t and not (t & used_w)]
-    rest = solve_residual(candidates, pool, [i for i in range(n) if i not in used_w],
-                          [j for j in range(m) if j not in used_t])
+    rest = residual_solver(candidates, pool, [i for i in range(n) if i not in used_w],
+                           [j for j in range(m) if j not in used_t])
     return None if rest is None else frozen + rest
 
 
@@ -190,10 +192,11 @@ def branch_pair(pool, z, n, m):
     return (int(i), int(j)) if EPS < x[i, j] < 1 - EPS else None
 
 
-def solve_wta(P, v):
+def solve_wta(P, v, residual_solver=None):
     """Branch-and-price. A node is the set of forbidden (weapon, target) pairs:
     branch x_ij = 0 forbids (i, j); branch x_ij = 1 forbids (i, k) for every other k.
-    Returns optimal value, assignment (weapon -> target), number of nodes."""
+    Returns optimal value, assignment (weapon -> target), number of nodes.
+    residual_solver: passed to primal_heuristic (default: exact MILP)."""
     n, m = P.shape
     master = Master(n, m)
     for j, t in dict.fromkeys(initial_columns(P, v)):            # dict.fromkeys drops duplicates
@@ -206,7 +209,7 @@ def solve_wta(P, v):
         lp, z = column_generation(master, P, v, forbidden)
         if lp >= best_value - EPS:                       # bound cannot improve: prune
             continue
-        plan = primal_heuristic(pool, z, n, m)
+        plan = primal_heuristic(pool, z, n, m, residual_solver)
         if plan is not None and sum(pool[col] for col in plan) < best_value:
             best_value, best_plan = sum(pool[col] for col in plan), plan
         pair = branch_pair(pool, z, n, m)
