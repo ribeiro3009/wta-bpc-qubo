@@ -62,12 +62,16 @@ def qaoa_probabilities(Q, reps=2, maxiter=200, seed=None):
     return state(result.x).probabilities()
 
 
-def solve(Q, reps=2, maxiter=200, shots=1000, seed=None):
-    """Return the measured 0/1 vector of lowest energy y^T Q y after QAOA."""
+def solve(Q, reps=2, maxiter=200, shots=1000, seed=None, info=None):
+    """Return the measured 0/1 vector of lowest energy y^T Q y after QAOA.
+    info: optional dict; if given, info["probabilities"] receives the exact final distribution
+    (probs[i] = probability of the y whose bit k is bit k of i)."""
     K = Q.shape[0]
     if K == 0:
         return np.zeros(0, dtype=int)
     probs = qaoa_probabilities(Q, reps=reps, maxiter=maxiter, seed=seed)
+    if info is not None:
+        info["probabilities"] = probs
     rng = np.random.default_rng(seed)
     measured = np.unique(rng.choice(len(probs), size=shots, p=probs / probs.sum()))
     Y = (measured[:, None] >> np.arange(K)) & 1          # one measured y per row

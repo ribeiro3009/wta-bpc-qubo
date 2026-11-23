@@ -64,8 +64,28 @@ def is_feasible(y, index, weapons, targets):
     return targets_ok and weapons_ok
 
 
+def feasible_mask(Y, index, weapons, targets):
+    """Vectorized is_feasible: Y has one 0/1 vector per row; returns one bool per row.
+    T[g, k] = 1 if column k is for target g; W[i, k] = 1 if column k uses weapon i.
+    Y @ T.T counts the columns of each target, Y @ W.T the uses of each weapon."""
+    T = np.array([[j == g for j, t in index] for g in targets], dtype=int).reshape(len(targets), len(index))
+    W = np.array([[i in t for j, t in index] for i in weapons], dtype=int).reshape(len(weapons), len(index))
+    Y = np.asarray(Y)
+    return np.all(Y @ T.T == 1, axis=1) & np.all(Y @ W.T <= 1, axis=1)
+
+
+def groups_by_target(index, targets):
+    """For each free target g, the list of variables k whose column is for g."""
+    return [[k for k, (j, t) in enumerate(index) if j == g] for g in targets]
+
+
+# Solvers that also need the groups (variables of each free target): solve(Q, groups, ...)
+GROUP_SOLVERS = {"random_onehot", "qaoa_xy"}
+
+
 def get_solver(name):
-    """The solve(Q, ...) function of a solver: "bruteforce", "annealing" or "qaoa".
+    """The solve function of a solver: "bruteforce", "annealing", "qaoa", "random" take (Q, ...);
+    "random_onehot" and "qaoa_xy" take (Q, groups, ...).
     QAOA is imported only when asked for, since qiskit is optional."""
     if name == "bruteforce":
         from wta_bpc.solvers import bruteforce
@@ -76,6 +96,15 @@ def get_solver(name):
     if name == "qaoa":
         from wta_bpc.solvers import qaoa
         return qaoa.solve
+    if name == "random":
+        from wta_bpc.solvers import random_sampling
+        return random_sampling.solve
+    if name == "random_onehot":
+        from wta_bpc.solvers import random_sampling
+        return random_sampling.solve_onehot
+    if name == "qaoa_xy":
+        from wta_bpc.solvers import qaoa_xy
+        return qaoa_xy.solve
     raise ValueError(f"unknown solver {name!r}")
 
 
@@ -87,7 +116,10 @@ def solve_residual_qubo(candidates, pool, weapons, targets, solver="annealing", 
     if not targets:
         return []
     Q, const, index = build_qubo(candidates, pool, weapons, targets, A=A, B=B)
-    y = get_solver(solver)(Q, **solver_options)
+    if solver in GROUP_SOLVERS:
+        y = get_solver(solver)(Q, groups_by_target(index, targets), **solver_options)
+    else:
+        y = get_solver(solver)(Q, **solver_options)
     if not is_feasible(y, index, weapons, targets):
         return None
     return [index[k] for k in np.flatnonzero(np.asarray(y) > 0.5)]

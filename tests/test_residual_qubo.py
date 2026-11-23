@@ -15,6 +15,8 @@ SOLVERS = [
     ("bruteforce", {}),
     ("annealing", {"seed": 0}),
     pytest.param("qaoa", {"seed": 0}, marks=pytest.mark.skipif(not HAS_QISKIT, reason="no qiskit")),
+    ("qaoa_xy", {"seed": 0}),
+    ("random_onehot", {"seed": 0}),
 ]
 
 

@@ -5,7 +5,7 @@ import numpy as np
 import pytest
 
 from wta_bpc import bpc
-from wta_bpc.qubo import build_qubo, energy, is_feasible
+from wta_bpc.qubo import build_qubo, energy, feasible_mask, groups_by_target, is_feasible
 
 F = frozenset
 
@@ -58,6 +58,18 @@ def test_is_feasible(hand_case):
     assert not is_feasible([1, 0, 1, 1, 0, 0], candidates, weapons, targets)
     # weapon 1 used twice: (1,{1}) + (2,{1})
     assert not is_feasible([1, 0, 0, 0, 1, 0], candidates, weapons, targets)
+
+
+def test_feasible_mask_agrees_with_is_feasible(hand_case, sparse_residual):
+    for candidates, _, weapons, targets in [hand_case, sparse_residual]:
+        Y = all_vectors(len(candidates))
+        expected = [is_feasible(y, candidates, weapons, targets) for y in Y]
+        assert list(feasible_mask(Y, candidates, weapons, targets)) == expected
+
+
+def test_groups_by_target(hand_case):
+    candidates, _, _, targets = hand_case
+    assert groups_by_target(candidates, targets) == [[0, 1, 2], [3, 4, 5]]
 
 
 def test_sparse_4x4_residual_qubo_matches_milp(sparse_residual):
