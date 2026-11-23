@@ -32,9 +32,62 @@ Replace the exact MILP of the primal heuristic by a **QUBO**, solved by brute fo
 annealing and QAOA (simulated), keeping the same interface, and measure the effect on the
 branch-and-price.
 
-## Install
+## Getting started
 
-Requires [uv](https://docs.astral.sh/uv/).
+### 1. Just run the tests (Docker)
+
+To check that everything works, without installing Python.
+Prerequisite: [Docker](https://docs.docker.com/get-docker/) (on Windows: Docker Desktop with WSL 2).
+
+```bash
+docker build -t wta-bpc .
+docker run --rm wta-bpc            # runs the tests
+```
+
+The image includes Qiskit, so the experiments run too. To keep their results on your computer,
+mount `experiments/results` as a volume:
+
+```bash
+# macOS / Linux
+docker run --rm -v "$(pwd)/experiments/results:/app/experiments/results" wta-bpc python experiments/compare.py
+```
+
+```powershell
+# Windows PowerShell
+docker run --rm -v "${PWD}/experiments/results:/app/experiments/results" wta-bpc python experiments/compare.py
+```
+
+```bat
+:: Windows cmd
+docker run --rm -v "%cd%\experiments\results:/app/experiments/results" wta-bpc python experiments/compare.py
+```
+
+The CSV files then appear in `experiments/results/`. Running times are close to a local install
+(`compare.py`: about 2 min).
+
+### 2. Full local install
+
+To work on the code and run the experiments. Requires **Python >= 3.11**: check with
+`python3 --version` (on macOS the default `python3` may be 3.9; install a newer one from
+[python.org](https://www.python.org/downloads/) or call it by version, e.g. `python3.13`).
+
+macOS / Linux:
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -e ".[dev,quantum]"
+.venv/bin/python -m pytest
+```
+
+Windows (PowerShell):
+
+```powershell
+python -m venv .venv
+.venv\Scripts\pip install -e ".[dev,quantum]"
+.venv\Scripts\python -m pytest
+```
+
+Alternative with [uv](https://docs.astral.sh/uv/), which also downloads Python 3.13 if needed:
 
 ```bash
 uv venv --python 3.13 .venv
@@ -46,23 +99,18 @@ QAOA (`qaoa` solver) and `benchmark_qaoa.py` imports it. The branch-and-price, t
 solvers and the XY-mixer QAOA (`qaoa_xy`, numpy only) work without it. To skip Qiskit, install
 `-e ".[dev]"`: the Qiskit tests are then skipped, and the two scripts above will fail.
 
-## Run
+### Experiments
 
-```bash
-.venv/bin/python -m wta_bpc.bpc   # solves a random 20 x 20 instance
-.venv/bin/python -m pytest   # runs the tests
-.venv/bin/python experiments/compare.py              # MILP vs QUBO solvers in step 2.5 (~1.5 min)
-.venv/bin/python experiments/export_benchmark.py     # save the step-2.5 problems to experiments/benchmark/
-.venv/bin/python experiments/benchmark_qaoa.py       # QAOA X vs XY on the benchmark, p = 1..3 (~3 min)
-.venv/bin/python experiments/find_hard_families.py   # tree size with / without step 2.5 (~20 s)
-```
+Run from the repository root with `.venv/bin/python` (Windows: `.venv\Scripts\python`).
+Results go to `experiments/results/`. Times measured on a recent laptop with a local install.
 
-With Docker (installs the `quantum` extra too and runs the tests):
-
-```bash
-docker build -t wta-bpc .
-docker run --rm wta-bpc
-```
+| command | what it does | time |
+|---|---|---|
+| `python -m wta_bpc.bpc` | solves a random 20 x 20 instance (demo) | < 1 s |
+| `python experiments/compare.py` | branch-and-price with each solver in step 2.5 (MILP, annealing, QAOA X / XY, random baselines): quality, time, tree size | ~1.5 min |
+| `python experiments/export_benchmark.py` | saves the step-2.5 problems to `experiments/benchmark/` | ~5 s |
+| `python experiments/benchmark_qaoa.py` | QAOA X vs XY on the benchmark, p = 1..3: P(optimal), P(feasible), approximation ratio | ~3 min |
+| `python experiments/find_hard_families.py` | tree size with / without step 2.5 on larger families | ~20 s |
 
 ## QUBO solvers for step 2.5
 
