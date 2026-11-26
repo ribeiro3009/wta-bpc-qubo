@@ -1,140 +1,59 @@
-# wta-bpc-qubo
+# WTA branch-and-price with a quantum step 2.5 (essential version)
 
-Branch-and-price for the static **Weapon-Target Assignment (WTA)** problem, with a QUBO
-(quantum-ready) version of its primal heuristic.
+## The idea
 
-## The problem
+- `bpc.py` solves the static Weapon-Target Assignment exactly by branch-and-price (Bertsimas & Paskov 2025). At each node, **step 2.5** (primal heuristic) freezes the columns at 1 in the LP solution and solves a small *residual* problem: pick candidate columns so that each free target gets exactly one and each free weapon is used at most once, at minimum cost.
+- `step25_quantum.py` writes that residual problem as a **QUBO**: one binary variable per candidate column, plus penalties A (one column per target) and B (no shared weapon). With A, B > the largest cost, the QUBO minimum is the residual optimum.
+- The QUBO is solved by **QAOA with an XY mixer** per target. The XY mixer keeps "one column per target" true at all times, so penalty A is never needed. It is simulated with numpy, only in the one-column-per-target subspace (a classical trick: real hardware needs one qubit per candidate column).
+- The answer is always checked. A QAOA answer that breaks a rule is dropped. Step 2.5 only proposes incumbents and never prunes on its own, so **the final result stays exact** whatever the QAOA finds.
 
-Weapons `i = 0..n-1`, targets `j = 0..m-1`. Target `j` has value `v[j]`; weapon `i` destroys
-target `j` with probability `P[i, j]`. Each weapon fires at exactly one target. Minimize the
-expected surviving value
+## Install
 
-```
-sum_j v[j] * prod_{i -> j} (1 - P[i, j])
-```
-
-## The algorithm
-
-A simplified version of the branch-and-price of Bertsimas & Paskov (2025),
-*Naval Research Logistics*, doi:[10.1002/nav.22249](https://doi.org/10.1002/nav.22249):
-
-- **Columns** `(j, t)`: target `j` is hit by exactly the set of weapons `t`, with cost
-  `v[j] * prod_{i in t} (1 - P[i, j])`. The non-linearity is hidden in the column cost.
-- **Master LP** (HiGHS): choose columns so that each target gets exactly one column and each
-  weapon is used at most once. Columns are added by **column generation** (pricing per target).
-- **Branch-and-bound** on the pairs (weapon, target) when the LP solution is fractional.
-- **Primal heuristic** (section 2.5 of the paper): freeze the columns at 1 in the LP solution and
-  solve the residual problem exactly over the candidate columns. This gives the incumbent.
-
-## Goal of this project
-
-Replace the exact MILP of the primal heuristic by a **QUBO**, solved by brute force, simulated
-annealing and QAOA (simulated), keeping the same interface, and measure the effect on the
-branch-and-price.
-
-## Getting started
-
-### 1. Just run the tests (Docker)
-
-To check that everything works, without installing Python.
-Prerequisite: [Docker](https://docs.docker.com/get-docker/) (on Windows: Docker Desktop with WSL 2).
-
-```bash
-docker build -t wta-bpc .
-docker run --rm wta-bpc            # runs the tests
-```
-
-The image includes Qiskit, so the experiments run too. To keep their results on your computer,
-mount `experiments/results` as a volume:
-
-```bash
-# macOS / Linux
-docker run --rm -v "$(pwd)/experiments/results:/app/experiments/results" wta-bpc python experiments/compare.py
-```
-
-```powershell
-# Windows PowerShell
-docker run --rm -v "${PWD}/experiments/results:/app/experiments/results" wta-bpc python experiments/compare.py
-```
-
-```bat
-:: Windows cmd
-docker run --rm -v "%cd%\experiments\results:/app/experiments/results" wta-bpc python experiments/compare.py
-```
-
-The CSV files then appear in `experiments/results/`. Running times are about 1.4x those of a
-local install (`compare.py`: about 9 min). An optional last argument sets the output folder,
-e.g. `... python experiments/compare.py experiments/results/my_run`.
-
-### 2. Full local install
-
-To work on the code and run the experiments. Requires **Python >= 3.11**: check with
-`python3 --version` (on macOS the default `python3` may be 3.9; install a newer one from
-[python.org](https://www.python.org/downloads/) or call it by version, e.g. `python3.13`).
+Python 3.10+.
 
 macOS / Linux:
-
 ```bash
 python3 -m venv .venv
-.venv/bin/pip install -e ".[dev,quantum]"
-.venv/bin/python -m pytest
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 Windows (PowerShell):
-
 ```powershell
 python -m venv .venv
-.venv\Scripts\pip install -e ".[dev,quantum]"
-.venv\Scripts\python -m pytest
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
 ```
 
-Alternative with [uv](https://docs.astral.sh/uv/), which also downloads Python 3.13 if needed:
+## Run
 
 ```bash
-uv venv --python 3.13 .venv
-uv pip install --python .venv/bin/python -e ".[dev,quantum]"
+python demo.py                          # MILP vs QAOA step 2.5 on 10 sparse 8x8 instances 
+python -m pytest test_essentials.py     # 2 tests, a few seconds
 ```
 
-The `quantum` extra installs Qiskit. Two experiments need it: `compare.py` runs the X-mixer
-QAOA (`qaoa` solver) and `benchmark_qaoa.py` imports it. The branch-and-price, the classical
-solvers and the XY-mixer QAOA (`qaoa_xy`, numpy only) work without it. To skip Qiskit, install
-`-e ".[dev]"`: the Qiskit tests are then skipped, and the two scripts above will fail.
+## Use it from another program (e.g. the GUI)
 
-### Experiments
+```python
+from step25_quantum import solve
 
-Run from the repository root with `.venv/bin/python` (Windows: `.venv\Scripts\python`).
-Results go to `experiments/results/`. Times measured on a recent laptop with a local install.
+value, assignment, nodes = solve(P, v)  # step 2.5 by QAOA XY (default)
+value, assignment, nodes = solve(P, v, step25="milp")  # original MILP step 2.5
+```
 
-| command | what it does | time |
-|---|---|---|
-| `python -m wta_bpc.bpc` | solves a random 20 x 20 instance (demo) | < 1 s |
-| `python experiments/compare.py` | branch-and-price with each solver in step 2.5 (MILP, annealing, QAOA X / XY, random baselines): quality, time, tree size | ~6.5 min |
-| `python experiments/export_benchmark.py` | saves the step-2.5 problems to `experiments/benchmark/` | ~5 s |
-| `python experiments/benchmark_qaoa.py` | QAOA X vs XY on the benchmark, p = 1..3: P(optimal), P(feasible), approximation ratio | ~9.5 min |
-| `python experiments/find_hard_families.py` | tree size with / without step 2.5 on larger families | ~20 s |
+- `P[i][j]`: probability that weapon `i` destroys target `j` (n weapons x m targets).
+- `v[j]`: value of target `j`.
+- `value`: expected surviving value (minimized). `assignment[i]`: target of weapon `i`. `nodes`: branch-and-bound nodes.
 
-## QUBO solvers for step 2.5
+Note: the GUI currently asks only for `P`, not for the target values `v`. Until it does, it must pass some `v` (for example all ones).
 
-| name | method |
+## Files
+
+| File | Content |
 |---|---|
-| `bruteforce` | enumerates all 2^K vectors (validation, K <= 22) |
-| `annealing` | simulated annealing (classical reference) |
-| `qaoa` | QAOA with X mixer and penalties, Qiskit statevector (K <= 20) |
-| `qaoa_xy` | QAOA with an XY mixer per target, simulated in the one-column-per-target subspace (numpy). On hardware it still needs K qubits. |
-| `random`, `random_onehot` | baselines: best of `shots` uniform random vectors (over all vectors / one column per target) |
+| `bpc.py` | Branch-and-price (unchanged copy of `src/wta_bpc/bpc.py` on main) |
+| `step25_quantum.py` | QUBO, XY-mixer QAOA, drop-in residual solver, `solve(P, v)` |
+| `demo.py` | Comparison MILP vs QAOA on sparse instances with a fractional root LP |
+| `test_essentials.py` | QUBO minimum = MILP optimum; same final value with both step 2.5 |
 
-## Benchmark
-
-`experiments/benchmark/` holds the residual problems of step 2.5 met by the branch-and-price on
-sparse instances with a fractional root LP (candidate columns, costs, free weapons and targets,
-exact optimum). Load them with `wta_bpc.benchmark.load` and `problem_from_dict`.
-See [experiments/benchmark/README.md](experiments/benchmark/README.md) for the format.
-
-## Layout
-
-```
-src/wta_bpc/            package: branch-and-price, QUBO, solvers, instance generator, benchmark I/O
-tests/                  tests on instances with known optimum
-experiments/            experiment scripts (results go to experiments/results/, not versioned)
-experiments/benchmark/  the step-2.5 benchmark (JSON)
-```
+The full version (other QUBO solvers, QAOA with the X mixer, experiments, benchmark, Docker, full test suite) is on the **main** branch.
